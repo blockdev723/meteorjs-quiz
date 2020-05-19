@@ -1,0 +1,124 @@
+<!------------------------------------------------
+|
+|	Learner resumes
+|
+-------------------------------------------------->
+<template name="portfolio">
+	{{#mooqita_wide_spacing}}
+		{{#if Template.subscriptionsReady}}
+			<!--{{>popout content="content" title="title" p_url="login"}}-->
+			{{>portfolio_basic current_resume}}
+			{{>portfolio_solutions current_resume}}
+		{{else}}
+			{{>wait}}
+		{{/if}}
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<template name="portfolio_basic">
+	<div class="padding-top">
+		<div class="row">
+			<div class="col-sm-4 col-ms-4 padding-next">
+				{{>avatar source=avatar}}
+			</div>
+
+			<div class="col-sm-8 col-ms-8">
+				<h2>
+					<em>{{given_name}}</em>
+				</h2>
+
+				{{>more content=resume expanded=true}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="portfolio_solutions">
+	{{#if solutions}}
+		<div class="item">
+			<h1>Portfolio</h1>
+
+			<p>
+				These are the public challenges {{given_name}} has solved.
+				For a detailed analysis of their work you can expand each
+				challenge to see {{given_name}}'s solution and the rating
+				they received from their peers.
+			</p>
+
+			{{#each solutions}}
+				{{>portfolio_solution}}
+			{{/each}}
+		</div>
+	{{/if}}
+</template>
+
+
+<template name="portfolio_solution">
+	<hr>
+
+	<div class="row">
+		<div class="col-md-8">
+			<h2>{{challenge.title}}</h2>
+		</div>
+
+		<div class="col-md-4 text-right">
+			<h2>Achieved rating <em>{{average_rating}}</em> of <em>5</em></h2>
+		</div>
+	</div>
+
+	{{#unless reviews_visible}}
+		{{#markdown}} {{shorten challenge.content}} {{/markdown}}
+
+		<h2>
+			<a id="show_reviews">
+				<em>Show evaluation</em>
+			</a>
+		</h2>
+	{{/unless}}
+
+	{{#if reviews_visible}}
+		{{#markdown}} {{challenge.content}} {{/markdown}}
+
+		<h2>
+			<a id="show_reviews">
+				<em>Hide evaluation</em>
+			</a>
+		</h2>
+
+		<h2>Solution</h2>
+
+		{{#markdown}} {{content}} {{/markdown}}
+
+		<h2>Reviews</h2>
+
+		{{#each reviews}}
+			{{>portfolio_review}}
+		{{else}}
+			<div class="well">
+				No reviews yet.
+			</div>
+		{{/each}}
+	{{/if}}
+</template>
+
+
+<template name="portfolio_review">
+	<div class="media" style="padding-bottom: 25px">
+		<div class="media-left">
+			<a href="{{g_build_url "portfolio"}}">
+				<img class="media-object img-circle" src="{{avatar}}" width="64px">
+			</a>
+
+			<h2>
+				<a href="{{g_build_url "portfolio"}}">{{name}}</a>
+			</h2>
+		</div>
+
+		<div class="media-body">
+			<h2>Rating: <em>{{average_rating}}</em> of <em>5</em></h2>
+			{{#markdown}} {{review}} {{/markdown}}
+		</div>
+	</div>
+</template>

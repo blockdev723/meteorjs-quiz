@@ -1,0 +1,177 @@
+///////////////////////////////////////////////
+// fonts
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+@import "{}/client/style/_color.scss";
+@import "{}/client/style/_fonts.scss";
+
+
+////////////////////////////////////////////
+// Dropbox
+////////////////////////////////////////////
+
+.dropcontainer {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.dropbox {
+	color: $text-on-theme;
+	font-size: 1em;
+	position: relative;
+	padding-top: 10px;
+	background-color: $theme;
+}
+
+.dropbox.is-uploading .dropbox_input,
+.dropbox.is-success .dropbox_input,
+.dropbox.is-error .dropbox_input {
+	visibility: hidden;
+}
+
+.dropbox_uploading,
+.dropbox_success,
+.dropbox_error {
+	display: none;
+}
+
+.dropbox.is-uploading .dropbox_uploading,
+.dropbox.is-success .dropbox_success,
+.dropbox.is-error .dropbox_error {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+
+	-webkit-transform: translateY( -50% );
+	transform: translateY( -50% );
+}
+
+.dropbox_uploading {
+	font-style: italic;
+}
+
+.dropbox_success {
+	-webkit-animation: appear-from-inside .25s ease-in-out;
+	animation: appear-from-inside .25s ease-in-out;
+}
+
+@-webkit-keyframes appear-from-inside {
+	from	{ -webkit-transform: translateY( -50% ) scale( 0 ); }
+	75%		{ -webkit-transform: translateY( -50% ) scale( 1.1 ); }
+	to		{ -webkit-transform: translateY( -50% ) scale( 1 ); }
+}
+
+@keyframes appear-from-inside {
+	from	{ transform: translateY( -50% ) scale( 0 ); }
+	75%		{ transform: translateY( -50% ) scale( 1.1 ); }
+	to		{ transform: translateY( -50% ) scale( 1 ); }
+}
+
+.dropbox.has-advanced-upload {
+	outline: 2px dashed $theme-dark;
+	outline-offset: -5px;
+
+	-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+	transition: outline-offset .15s ease-in-out, background-color .15s linear;
+}
+
+.dropbox_dragndrop,
+.dropbox_icon {
+	display: none;
+}
+
+.dropbox.has-advanced-upload .dropbox_dragndrop {
+	display: inline;
+}
+
+.dropbox.has-advanced-upload .dropbox_icon {
+	width: 100%;
+	height: 1em;
+	color: $text-on-theme;
+	font-size: 2em;
+	display: block;
+}
+
+.dropbox.is-dragover {
+	outline-offset: -10px;
+	outline-color: $theme;
+	background-color: $theme-dark;
+}
+
+////////////////////////////////
+// File
+////////////////////////////////
+
+////////////////////////////////
+.dropbox_file {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.dropbox_file + label
+{
+	max-width: 80%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.dropbox_file + label em
+{
+	color: $contrast-on-theme;
+}
+
+.dropbox_file + label:hover em,
+.dropbox_file:focus + label em,
+.dropbox_file.has-focus + label em
+{
+	color: $contrast-on-theme-dark;
+}
+
+
+////////////////////////////////
+// Submit Button
+////////////////////////////////
+
+////////////////////////////////
+.dropbox_button {
+	font-weight: 700;
+	color: $text-on-theme;
+	background-color: $contrast-on-theme;
+	display: none;
+	padding: 8px 16px;
+	margin: 40px auto 0;
+}
+
+.dropbox_button:hover,
+.dropbox_button:focus {
+	background-color: $theme-dark;
+}
+
+
+////////////////////////////////
+// Restart after error
+////////////////////////////////
+
+////////////////////////////////
+.dropbox a.dropbox_restart {
+	font-weight: 700;
+	color: $theme-light;
+}
+
+////////////////////////////////
+.dropbox_restart:focus,
+.dropbox_restart:hover {
+	color: #f00;
+}
+

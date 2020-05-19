@@ -1,0 +1,364 @@
+<!------------------------------------------------
+|
+| Onboarding Intro
+|
+-------------------------------------------------->
+<template name="onboarding_job_intro">
+	{{#mooqita_wide_spacing}}
+		<div class="row padding-top" style="margin-top: 20%">
+			<div class="col-sm-6">
+				<h1 style="text-align: center; padding-top: 30px">
+					<img style="width: 300px" src="/images/mooqita.jpg">
+				</h1>
+			</div>
+
+			<div class="col-sm-6">
+				<h1>Optimize your hiring process!</h1>
+
+				<p style="padding-bottom: 25px">
+					Mooqita can help you to evaluate all your applicants before you have even read one resume.
+					Mooqita allows you to rank your candidates based on their real life performance in your
+					individually designed Mooqita-Challenge and our Mooqita-Team-Fit personality score.
+				</p>
+
+				<a class="btn btn-theme" href="onboarding_job_role">
+					Design a Mooqita-Challenge to assess your candidates
+				</a>
+			</div>
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+| Onboarding Role
+|
+-------------------------------------------------->
+<template name="onboarding_job_role">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: center; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>
+
+		<h1>Role</h1>
+
+		<p>
+			Please select the main role of your candidate.
+			Don't worry you can change this later.
+		</p>
+
+		{{>job_role session="onboarding_job_data" key="role"
+								href="onboarding_job_competency"}}
+
+		<div class="onboarding-nav" style="padding-bottom: 20px; padding-top: 30px">
+			<div class="right">
+				<a class="pull-right btn btn-theme" href="onboarding_job_competency">
+					Candidate competencies
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+
+			<div class="mid">
+				<a class="page-number selected" href="onboarding_job_role">1</a>
+				<a class="page-number" href="onboarding_job_competency">2</a>
+				<a class="page-number" href="onboarding_job_info">3</a>
+				<a class="page-number" href="onboarding_job_tier">4</a>
+			</div>
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+| Onboarding Competency
+|
+-------------------------------------------------->
+<template name="onboarding_job_competency">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: center; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>
+
+		<h1>Competencies</h1>
+
+		<p>
+			Finding the candidate with the right skill set is important.
+			However, Mooqita can do more for you. We can help you find the person
+			that will complement your teams social fabric. Select any number of
+			competencies you deem important for candidates for this job posting.
+		</p>
+
+		{{>job_competency session="onboarding_job_data"}}
+
+		<div class="onboarding-nav" style="padding-bottom: 20px; padding-top: 30px">
+			<div class="left">
+				<a class="pull-left btn btn-theme" href="onboarding_job_role">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					Back
+				</a>
+			</div>
+
+			<div class="right">
+				<a class="pull-right btn btn-theme" href="onboarding_job_info">
+					Describe your job
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+
+			<div class="mid">
+				<a class="page-number" href="onboarding_job_role">1</a>
+				<a class="page-number selected" href="onboarding_job_competency">2</a>
+				<a class="page-number" href="onboarding_job_info">3</a>
+				<a class="page-number" href="onboarding_job_tier">4</a>
+			</div>
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+| Onboarding job info
+|
+-------------------------------------------------->
+<template name="onboarding_job_info">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: center; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>
+
+		<h1>Job Description</h1>
+
+		<p>
+			Give us a short description of your job so we can generate
+			a challenge to screen your candidates. You do not have to
+			go into detail. We will get to you with questions if necessary.
+		</p>
+
+		{{>text_input session="onboarding_job_data" key="description" rows="4"
+				placeholder="We look for a frontend developer with some design skills. Great if the person is versed in React and Bootstrap 4. The candidate would design our website based on designs from a graphics artist."}}
+
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">
+				{{>match_button session="onboarding_job_data" key="description"
+												in_collection="challenges" text="Get quote"}}
+			</div>
+		</div>
+
+		{{#if saved}}
+			<div class="alert alert-theme" style="padding-bottom: 20px">
+				{{#unless has_text}}
+					<p>
+						Please provide us with some more information about your job offer
+						to get an immediate quote on challenges to assess your candidates.
+					</p>
+				{{else}}
+
+					{{#if enough_challenges}}
+						We found <span style="font-weight: bold" class="color-theme">{{num_challenges}}</span>
+						challenges on our platform that match your description.
+
+						{{#if enough_candidates}}
+							There were <span style="font-weight: bold" class="color-theme">{{num_candidates}}</span>
+							candidates worked on these challenges looking for a job.
+						{{/if}}
+					{{else}}
+						<p>
+							We estimate your challenge to be available within
+							<span style="font-weight: bold" class="color-theme">{{work_days}}</span>
+							work days.
+						</p>
+					{{/if}}
+
+				{{/unless}}
+			</div>
+		{{/if}}
+
+		<div class="onboarding-nav" style="padding-bottom: 20px; padding-top: 30px">
+			<div class="left">
+				<a class="pull-left btn btn-theme" href="onboarding_job_competency">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					Back
+				</a>
+			</div>
+
+			<div class="right">
+				<a class="pull-right btn btn-theme" href="onboarding_job_tier">
+					Select your tier
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+
+			<div class="mid">
+				<a class="page-number" href="onboarding_job_role">1</a>
+				<a class="page-number" href="onboarding_job_competency">2</a>
+				<a class="page-number selected" href="onboarding_job_info">3</a>
+				<a class="page-number" href="onboarding_job_tier">4</a>
+			</div>
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+| Onboarding subscription tier level
+|
+-------------------------------------------------->
+<template name="payment_option">
+	<div class="payment-option" style="padding: 15px; min-height: 400px">
+		<div style="background: {{background}}; color: {{color}}; border-radius: 10px;
+								text-shadow: 1px 1px 2px #00000022, 0 0 1em #00000055">
+			<div style="padding: 15px">
+				<div style="text-align: center; font-size: 25px; font-weight: bold; font-style: italic;">{{name}}</div>
+			</div>
+
+			<div style="padding-bottom: 20px;">
+				<div style="font-size: 60px; text-align: center; background: {{background}};">
+					<i style="vertical-align: super; font-size: 30px; margin-right: -10px;">$</i>
+						{{price}}
+					<i style="vertical-align: super; font-size: 30px; margin-left: -15px;">.00</i>
+
+					<div class="text-right" style="font-size: 16px; text-align: right;
+																				 padding: 3px 5px; margin-top: -15px;">
+						per candidate
+					</div>
+				</div>
+			</div>
+
+			<div style="padding: 15px;">
+				<a href="{{href}}" class="btn register-button"
+					 style="width: 100%; background: {{background}}; color: {{color}}">
+					{{button}}
+				</a>
+			</div>
+		</div>
+
+		<div style="padding: 15px; color: #333333;">
+			<div style="color: {{background}}; font-weight: bold">{{name}} includes</div>
+			<hr style="border-top-color: {{background}}; margin: 8px -15px 16px;">
+			<div class="itemized">{{{text}}}</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="onboarding_job_tier">
+	<style>
+		.itemized li {
+			list-style: none;
+			margin-right: -15px;
+			padding-left: 20px;
+    }
+
+    .itemized li:before {
+      content:'-';
+      display: block;
+      position: relative;
+      max-width: 0px;
+      max-height: 0px;
+      left: -20px;
+      top: -13px;
+      font-size: 30px;
+			color: #ddd;
+    }
+	</style>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-1
+									col-md-12 col-md-offset-0
+									col-sm-8 col-sm-offset-2
+									col-ms-12 col-ms-offset-0
+									col-xs-10 col-xs-offset-1">
+				<h1 style="text-align: center; padding-top: 30px">
+					<img style="width: 300px" src="/images/mooqita.jpg">
+				</h1>
+
+				<h1 style="text-align: center">Select your tier</h1>
+
+				<p style="text-align: center">
+					All tiers include our unique screening methods and instant feedback system.
+				</p>
+
+				<hr>
+
+				<div class="row">
+					<div class="col-sm-6 col-ms-6 col-md-3 hover-padding">
+						{{>payment_option price="0" name="Trial"
+								background="rgba(141, 1, 98, 0.66)" color="#fff" button="Try"
+								text="<li>Up to 5 Candidates screened</li><li>Performance screening only</li>"
+								href="#"}}
+					</div>
+
+					<div class="col-sm-6 col-ms-6 col-md-3 hover-padding">
+						{{>payment_option price="25" name="Basic"
+								background="rgba(4, 139, 168, 0.66)" color="#fff" button="Buy Basic"
+								text="<li>Unlimited number of candidates</li><li>Performance screening only</li>"
+								href="#"}}
+					</div>
+
+					<div class="col-sm-6 col-ms-6 col-md-3 hover-padding">
+						{{>payment_option price="45" name="Plus"
+								background="rgba(20, 166, 25, 0.66)" color="#fff" button="Contact Us"
+								text="<li>Unlimited number of candidates</li><li>Performance screening</li><li>Soft skill evaluation</li>" href="mailto:info@mooqita.com?Subject=Plus%20subscription%20information"}}
+					</div>
+
+					<div class="col-sm-6 col-ms-6 col-md-3 hover-padding">
+						{{>payment_option price="75" name="Extra"
+								background="rgba(233, 102, 6, 0.66)" color="#fff" button="Contact Us"
+								text="<li>Unlimited number of candidates</li><li>Performance screening</li><li>Soft skill evaluation</li><li>Team fit analysis</li><li>Access External candidates</li>"
+								href="mailto:info@mooqita.com?Subject=Extra%20subscription%20information"}}
+					</div>
+				</div>
+
+				<hr>
+
+				<h1 style="text-align: center; font-weight: 300">
+					If you have any questions please do not hesitate. <br>
+					Contact our sales team at:<br>
+					<a href="mailto:info@mooqita.com?Subject=Sales%20question">sales@mooqita.com</a>
+				</h1>
+
+				<div class="onboarding-nav" style="padding-bottom: 20px; padding-top: 30px">
+					<div class="left">
+						<a class="pull-left btn btn-theme" href="onboarding_job_competency">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							Back
+						</a>
+					</div>
+
+					<div class="right">
+						<a class="pull-right btn btn-theme register-button" href="#">
+							Trial
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</div>
+
+					<div class="mid">
+						<a class="page-number" href="onboarding_job_role">1</a>
+						<a class="page-number" href="onboarding_job_competency">2</a>
+						<a class="page-number" href="onboarding_job_info">3</a>
+						<a class="page-number selected" href="onboarding_job_tier">4</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="onboarding_job_register">
+	<div class="modal fade register-modal">
+		<div class="register-frame animated">
+			<button type="button" class="btn btn-default close-register" data-dismiss="modal">
+				<div class="fa fa-times"></div>
+			</button>
+
+			{{>atForm}}
+		</div>
+	</div>
+</template>
+

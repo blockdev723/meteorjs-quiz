@@ -1,0 +1,588 @@
+///////////////////////////////////////////////
+// colors
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+@import "{}/client/style/_color.scss";
+@import "{}/client/style/_fonts.scss";
+
+////////////////////////////////////////////////
+//
+// Mooqita
+//
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+// Mooqita layout
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+.mooqita-layout{
+}
+
+.mooqita-layout p{
+}
+
+////////////////////////////////////////////////
+// Misc
+////////////////////////////////////////////////
+.mooqita-layout .indent_l1{
+	margin-left: 45px;
+}
+
+.mooqita-layout .padding-next{
+	padding-bottom: 25px;
+}
+
+////////////////////////////////////////////////
+// header
+////////////////////////////////////////////////
+.mooqita-layout h1{
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+
+.mooqita-layout h1{
+	margin: 45px 0 0 0;
+	padding: 0 0 15px 0;
+}
+
+.mooqita-layout h1:first-child{
+	margin: 0;
+}
+
+.mooqita-layout h2{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 25px;
+}
+
+.mooqita-layout h2 a{
+	color: $theme;
+}
+
+.mooqita-layout h2 a:hover{
+	color: $contrast-on-theme;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.mooqita-layout .popover{
+    min-width:200px;
+}
+
+.mooqita-layout .popover-title,
+.mooqita-layout .popover-content{
+	color: $text;
+}
+
+
+////////////////////////////////////////////////
+// paragraphs
+////////////////////////////////////////////////
+.mooqita-layout p.user-data{
+	white-space: pre-wrap;       /* Since CSS 2.1 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+	margin-bottom: 25px;
+}
+
+////////////////////////////////////////////////
+// forms
+////////////////////////////////////////////////
+.mooqita-layout .form-control{
+	border-color: $theme;
+	border-width: 2px;
+	font-size: 16px;
+}
+
+.mooqita-layout input.form-control,
+.mooqita-layout select.form-control{
+	height: 45.5px;
+}
+
+.mooqita-layout .form-control.tags{
+	background: $background;
+	color: $text;
+}
+
+.mooqita-layout .form-control.tags:focus{
+	background: $background;
+	color: $text;
+}
+
+.mooqita-layout .badge .form-control{
+	min-height: 0px;
+	font-size: 14px;
+	padding: 0px;
+	height: auto;
+	margin: 8px 0px 4px 0px;
+}
+
+.mooqita-layout .editable .form-control{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	background: none;
+	font: inherit;
+//	border: inherit;
+	text-align: inherit;
+	color: inherit;
+	display: initial;
+	height: 100%;
+//	padding: 0px;
+	margin-bottom: -2px;
+}
+
+.mooqita-line{
+	margin-top: 40px;
+	margin-bottom: 40px;
+	border-top-color: $theme;
+	border-top-width: 3px;
+	width: 25%;
+}
+
+////////////////////////////////////////////////
+// itemized: an item encompasses other elements
+// with a border
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+.mooqita-layout .row-line-left{
+	border-left: solid;
+	border-color: $theme-light;
+	border-width: 2px;
+	border-radius: 20px;
+	margin-left: 15px;
+	padding-left: 25px;
+}
+
+.mooqita-layout .item-set {
+	//border: 2px solid #ddd;
+	padding: 25px;
+	margin: 0 0 25px 0;
+}
+
+.mooqita-layout .item-set.padding-top{
+	margin-top: 35px;
+}
+
+.mooqita-layout .item-set h1{
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+
+.mooqita-layout .item-set h1{
+	margin: 45px 0 0 0;
+	padding: 0 0 15px 0;
+}
+
+.mooqita-layout .item-set h1:first-child{
+	margin: 0;
+}
+
+.mooqita-layout .item-set h2{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 25px;
+	color: $theme;
+}
+
+a.mooqita,
+.mooqita-layout .item-set h2 a{
+	color: $theme;
+}
+
+a.mooqita:hover,
+.mooqita-layout .item-set h2 a:hover{
+	color: $theme;
+	background: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.mooqita-layout .item-set .item-set-element{
+	padding: 20px;
+	padding-top: 5px;
+	padding-bottom: 30px;
+	color: $text;
+	display: block;
+}
+
+.mooqita-layout .item-set .item-set-element:hover{
+	background: $contrast-on-theme;
+	text-decoration: none;
+}
+
+.mooqita-layout .item-set hr {
+	margin: 0px;
+	padding: 0px
+}
+
+.mooqita-layout .item-set .rating_line{
+	padding: 0px 0px 20px 0px;
+	text-align: right;
+}
+
+.mooqita-layout .item-set .wide_link{
+	padding-top: 15px;
+	text-align: center;
+}
+
+.mooqita-layout .item-set .edit-toggle{
+	color: $theme;
+}
+
+.mooqita-layout .item-set .edit-toggle:hover{
+	color: $theme;
+}
+
+.mooqita-layout .item-set .media-body{
+	padding-left: 20px;
+}
+
+.mooqita-layout .item-set .media-body h2{
+	margin: 0;
+	padding: 0 0 10px 0;
+}
+
+////////////////////////////////////////////////
+// occpuation selection
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+.mooqita-layout .select-occupation{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.mooqita-layout .select-occupation .item-set:hover{
+	border-color: $theme;
+}
+
+.mooqita-layout .select-occupation .glyphicon{
+	font-size: 2em;
+	color: $theme;
+}
+
+.mooqita-layout .select-occupation.select-disabled .item-set,
+.mooqita-layout .select-occupation.select-disabled .item-set:hover,
+.mooqita-layout .select-occupation.select-disabled .glyphicon{
+	border-color: #ddd;
+	color: #ddd;
+}
+
+.mooqita-layout .select-occupation label{
+	font-size: 1.5em;
+	font-weight: 300;
+	text-align: center;
+}
+
+////////////////////////////////////////////////
+// footer
+////////////////////////////////////////////////
+.mooqita-layout footer h1, .h1{
+	color: $text-on-theme;
+}
+
+.mooqita-layout footer h1:first-child,
+.mooqita-layout footer .h1:first-child{
+	margin-top: 25px;
+	margin-bottom: 15px;
+	padding: 0px;
+}
+
+.mooqita-layout footer a{
+	font-size: 18px;
+	color: $contrast-on-theme;
+}
+
+.mooqita-layout footer a:hover{
+	color: $contrast-on-theme-dark;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.mooqita-layout footer hr,
+.mooqita-layout footer .hr{
+	border-top: 2px solid $contrast-on-theme;
+	width: 25%;
+}
+
+////////////////////////////////////////////////
+// landing page hero
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+.padding-top{
+	padding-top: 50px;
+}
+
+////////////////////////////////////////////////
+.mooqita-layout .hero {
+	background-repeat: repeat, no-repeat;
+	background-size: auto auto, cover;
+	background-position: 0 0, top center;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: absolute;
+	min-height: 350px;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.mooqita-layout .hero.logged-in{
+	background-repeat: repeat, no-repeat;
+	background-size: auto auto, cover;
+	background-position: 0 0, top center;
+	min-height: 350px;
+	position: relative;
+}
+
+.mooqita-layout .hero h1 {
+	color: #fff;
+	max-width: 650px;
+	font-size: 50px;
+	font-weight: 300;
+	text-align: center;
+}
+
+.mooqita-layout .hero-background{
+//	background-image: linear-gradient(rgba(#ffb804,0.4), rgba($theme,0.6)), url(/images/bg.jpg);
+	background-image: linear-gradient(rgba(#ffb804,0.4), rgba($theme,0.6)), url(/images/bg.jpg);
+}
+
+////////////////////////////////////////////////
+// Ready Badges
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+.ready-badge{
+	font-size: 16px;
+	padding: 8px;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Rasied with shadow
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+.raised {
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+	padding: 5px;
+}
+
+.float-container{
+	float: right;
+	margin-left: 15px;
+	margin-bottom: 35px;
+	padding: 15px;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Floating Button
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+.btn-float{
+	display: inline-block;
+	vertical-align: middle;
+
+	position: absolute;
+	margin: 10px;
+	right: 0px;
+	top: 0px;
+
+	border-radius: 50%;
+
+	//overflow: hidden;
+	cursor: pointer;
+	z-index: 100;
+}
+
+.btn-float.raised{
+	margin: 10px;
+	padding: 10px;
+}
+
+.btn-float.raised:hover{
+	padding: 11px;
+	margin: 9px;
+
+  -webkit-box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.35);
+          box-shadow: 1px 1px 16px rgba(0, 0, 0, 0.35);
+}
+
+
+.btn-float.raised:active{
+	padding: 10px;
+	margin: 10px;
+
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Pop Icons
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+.pop-icon-circle {
+	position: absolute;
+	top: -25px;
+	right: -25px;
+	font-size: 100px;
+
+	width: 100px;
+	height: 100px;
+
+	background: white;
+	border-radius: 100%;
+
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.35);
+}
+
+.pop-icon{
+	position: absolute;
+}
+
+// centered Icons
+
+.center-icon{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -14px;
+	margin-top: -18px;
+}
+
+.sign-in{
+	color: $text-on-theme;
+}
+
+.sign-in:hover{
+	color: $contrast-on-theme;
+	text-decoration: none;
+}
+
+.requirement-row{
+	width: 100%;
+	display: inline-block;
+	padding-bottom: 20px;
+}
+
+
+.onboarding .left {
+	float: left;
+	border: solid 1px red;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Onboarding navigation
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+.onboarding-nav{
+}
+
+///////////////////////////////////////////////////////////////////////////////
+.onboarding-nav .left {
+	float: left;
+}
+
+.onboarding-nav .mid {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.onboarding-nav .right {
+	float: right;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+.onboarding-nav .page-number{
+	border: 1px solid $theme;
+	border-radius: 50%;
+	color: $theme;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+
+.onboarding-nav .page-number.selected{
+	color: $text-on-theme;
+	background: $theme;
+}
+
+.onboarding-nav a.page-number:hover{
+	color:$text-on-theme;
+	background: $contrast-on-theme;
+	text-decoration: none;
+}
+
+/////////// card style ///////////////
+
+.mooqita-card-title {
+	width: 100%;
+	height: 60px;
+	background-color: $theme;
+	color: white;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+  }
+  
+  .mooqita-center {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+  }
+  
+  ////////// Border Stype /////////////@extend
+  .mooqita-border {
+	border: solid 1px; 
+	border-color: $theme
+  }
+  
+  .mooqita-collapse-header {
+	border: solid 1px;
+	border-color: #8d0162;
+	font-size: 22px;
+	height: 50px;
+	align-items: center;
+	display: flex;
+	padding-left: 15px;
+	cursor: pointer;
+  }
+  
+  .mooqita-peer-review-li {
+	height: 70px;  
+	align-items: center;
+	display: flex;
+  }
+  
+  /////////// Dimension ////////////
+  .mooqita-nor-h {
+	height: 50px;
+  }
+
+  /////////// layout //////
+.mooqita-justify-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.mooqita-checkbox {
+	width: 30px;
+	height: 30px;
+}

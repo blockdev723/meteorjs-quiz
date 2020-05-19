@@ -1,0 +1,326 @@
+<template name="cobol_course">
+    <style>
+
+        .panel > .panel-heading {
+            background-image: none;
+            background-color: #A02D67;
+            color: white;
+        }
+
+        .alert > .alert-success {
+            background-color: #A02D67;
+            color: white;
+        }
+
+        .progress {
+            background-color: white;
+            color: white;
+            height: 50px;
+        }
+
+            .progress > .progress-bar-success {
+                background-color: #862D65;
+                color: white;
+            }
+
+        .btn-group > .btn-success {
+            background-color: #862D65;
+            color: white;
+            border: none;
+        }
+
+        .btn > .btn-success {
+            background-color: #862D65;
+            color: white;
+            border: none;
+            width: 230px;
+        }
+    </style>
+    <script>
+        SEC_HTTPS = true;
+        SEC_BASE = "compilers.widgets.sphere-engine.com";
+        (function(d, s, id){ SEC = window.SEC || (window.SEC = []);
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
+          js.src = (SEC_HTTPS ? "https" : "http") + "://" + SEC_BASE + "/static/sdk/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, "script", "sphere-engine-compilers-jssdk"));
+    </script>
+    <!--
+    {{#each module in cobol_modules}}
+    <div id="cobol_module_{{@index}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">{{module.title}}</h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <html>
+                        {{{module.content}}}
+                    </html>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#cobol_module_{{cobol_module_back @index}}">Back</button>
+                <button type="button" class="btn btn-default cobol_module_next" data-dismiss="modal" data-toggle="modal" data-target="#cobol_module_{{cobol_module_next @index}}" value="{{@index}}">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}-->
+<div class="header">
+    <center>
+        <br />
+    </center>
+</div>
+<div class="container">
+    <!--
+    <center>
+        <h1>
+            Course Home:
+            <strong>COBOL</strong>
+            <span type="button" class="glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#info"></span>
+        </h1>
+        {{#if cobol_course_disabled_text}}
+        <h2>You cannot enroll in this course until you have completed Computational Thinking. {{cobol_course_progress}}</h2>
+        {{/if}}
+        <div id="info" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">About Common Business-Oriented Language (COBOL)</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Despite its status as a legacy programming language, COBOL is still widely used and highly valued in business, finance, and government applications. The rise of experienced COBOL programmers retiring has created a market for nearly anyone who can maintain existing systems - without being a professional programmer.
+                            This course will teach skills that are critical to understanding, writing, debugging, and maintaining COBOL programs. Topics that will be covered include language design basics, data types and manipulation, arithmetic, logical operations, and real world examples.
+                            Successful completion of this course will permit you to attempt paid challenges and offer a certificate to showcase on your LinkedIn profile.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Course Progress</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-9 col-xs-12">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{cobol_course_progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{cobol_course_progress}}%">
+                                <h2>{{cobol_course_progress}}%</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <center>
+                        <div class="btn btn-right">
+                            <button data-toggle="modal" data-target="#cobol_module_{{cobol_module_resume}}" class="btn btn-lg btn-success" {{cobol_course_disabled}}>Resume Course</button>
+                        </div>
+                        {{#if cobol_module_resume_title}}
+                        <h1>Current Lesson: <strong>{{cobol_module_resume_title}}</strong></h1>
+                        {{else}}
+                        <h1>Course Completed</h1>
+                        {{/if}}
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success panel-default">
+                <div class="panel-heading">
+                    <h3>Course Content</h3>
+                </div>
+                <div class="sec-widget" data-widget="eebac8ae04041aa67d921cef6c6dda39"></div>
+                <div class="panel-body panel panel-default cobol accordion" id="accordion"  aria-multiselectable="true">
+                    <div class="list-group">
+                        {{#each module in cobol_modules}}
+                        {{#if is_module_completed @index}}
+                        <button class="list-group-item module-count" data-parent="#accordion" href="#cobol_module_{{@index}}" data-toggle="collapse" data-target="#cobol_module_{{@index}}" aria-expanded="true"  aria-controls="cobol_module_{{@index}}" >
+                            <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                            <p>{{module.description}}</p>
+                        </button>
+                        {{else if is_module_disabled @index }}
+                        <button class="list-group-item module-count" data-parent="#accordion"  href="#cobol_module_{{@index}}" data-toggle="collapse" data-target="#cobol_module_{{@index}}"  aria-controls="cobol_module_{{@index}}">
+                            <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                            <p>{{module.description}}</p>
+                        </button>
+                        {{else}}
+                        <button class="list-group-item module-count" data-parent="#accordion"  href="#cobol_module_{{@index}}"  data-toggle="collapse" data-target="#cobol_module_{{@index}}" aria-expanded="true"   aria-controls="cobol_module_{{@index}}" >
+                            <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                            <p>{{module.description}}</p>
+                        </button>
+                        {{/if}}
+                        <div id="cobol_module_{{@index}}" class="collapse course-content-collapsetab"  data-parent="#accordion" >
+                                <p>
+                                        {{{module.content}}}
+                                </p>
+                            </div>    
+                        {{/each}}
+                    </div>
+                </div>
+                <p>
+                    <p>A division is a block of code that might have its subsections. All Divisions in COBOL a program begin the division name and end with the start of the next division. The last division ends at the end of the program.</p>
+                    <p>A COBOL program contains the following four divisions:</p>
+                    <ol>
+                       <li>Identification Division</li>
+                       <li>Environment Division</li>
+                       <li>Data Division</li>
+                       <li>Procedure Division</li>
+                    </ol>
+                    <p>The code written in this division manipulates the data that is written in the DATA Division. The programmer describes their algorithm in the PROCEDURE DIVISION.</p>
+                    <p>Below is a sample COBOL program that displays 'Hello World'.</p>
+                    <code>IDENTIFICATION DIVISION.</code><br> <code>PROGRAM-ID. HelloWorld.</code><br> <code>PROCEDURE DIVISION.</code><br> <code>DisplayMessage.</code><br> <code>&nbsp; DISPLAY 'Hello World'.</code><br> <code>&nbsp; STOP RUN.</code><br>
+                    <p>We discuss COBOL Divisions in detail here:</p>
+                    <p class="in-pop-heading">IDENTIFICATION DIVISION</p>
+                    <p>As the name explains, this division provides identification information about the program to the computer and compiler such as the program name and other parts that identifies the program uniquely. Identification division may contain documentation as well. This division is required in all COBOL programs. Identification division syntax looks as follows:</p>
+                    <code>[Required] IDENTIFICATION DIVISON.</code><br> <code>[Required] PROGRAM-ID ProgramName.</code><br> <code>[Optional] AUTHOR. ProgrammerName.</code><br> <code>[Optional] INSTALLATION. </code><br> <code>[Optional] DATE-WRITTEN. mm/dd/yy.</code><br> <code>[Optional] DATE-COMPILED. mm/dd/yy. HH:MM:SS.</code><br> <code>[Optional] SECURITY. ProgramType.</code><br>
+                    <ol>
+                       <li>PROGRAM-ID: Program-ID is the name of the program, which cannot be longer than eight characters. We need the program-id to execute (run) a program.</li>
+                       <li>Author: The programmer writes his name here.</li>
+                       <li>Installation: Here the programmer writes the location or organization name where the program is installed.</li>
+                       <li>Date-written: Here the programmer enters the date in which the program was written.</li>
+                       <li>Date-Compiled: After the compiler compiles the program, it automatically updates this field to the date and time in which the program was compiled.</li>
+                       <li>Security: This part indicates the classification or confidentiality of the program. For instance, a public program is available to everyone while a private one is not available to the public.</li>
+                    </ol>
+                    <p>Example of Identification Division:</p>
+                    <code>IDENTIFICATION DIVISON.</code><br> <code>PROGRAM-ID. NewProgram.</code><br> <code>AUTHOR. James.</code><br> <code>INSTALLATION. PKI.</code><br> <code>DATE-WRITTEN. 07/07/18.</code><br> <code>DATE-COMPILED. 07/08/18.</code><br> <code>SECURITY. PRIVATE.</code>
+                    <p>Activity:</p>
+                    <p>Now it is your turn to write the IDENTIFICATION DIVISION for a program. Write it the compiler area below and compile to see if you did it correctly.</p>
+                    <p class="in-pop-heading">ENVIRONMENT DIVISION</p>
+                    <p>This division describes the environment in which the program will run. Environment here means the computer and other devices used to compile and run the program. In this division, the programmer specifies the input and output sources such as printers, scanners, and files with which the program interacts. Environment division has two sections:</p>
+                    <ol>
+                       <li>CONFIGURATION SECTION: specifies the hardware in which the program runs</li>
+                       <li>INPUT-OUTPUT SECTION: Connects the program identifiers to external resources such as external files.</li>
+                    </ol>
+                    <p>Syntax:</p>
+                    <code>[Optional] [CONFIGURATION SECTION.</code><br> <code>[Optional] [SOURCE-COMPUTER. {Src-Computer-Name}]</code><br> <code>[Optional] [OBJECT-COMPUTER. {Obj-Computer-Name}]]</code><br> <code>[Optional] [INPUT-OUTPUT SECTION.</code><br> <code>[Optional] [FILE-CONTROL. {File-Control-Name}]</code><br> <code>[Optional] [I-O-CONTROL. {Io-Control-Name}]]</code><br>
+                    <p>Configuration Section:</p>
+                    <ol>
+                       <li>SOURCE-COMPUTER: Here the programmer provides the computer system that will be used to compile the program.</li>
+                       <li>OBJECT-COMPUTER: Is the computer name on which the program will be executed/run.</li>
+                    </ol>
+                    <p>Input-Output Section:</p>
+                    <ol>
+                       <li>
+                          FILE-CONTROL: This section has all the information about the files being used in the program. The program finds the location of the files in use from this section. It should be noted that there are three types of logical file structure in COBOL: sequential, relative, and indexed. FILE-CONTROL section has a list of clauses to work with the files. Those clauses are:
+                          <ol>
+                             <li>
+                                SELECT: This clause determines where the filen be accessed from.
+                                <p>Syntax: SELECT [OPTIONAL] filename ASSIGN {[TO file-storage-location-1] [USING filename-2]}</p>
+                             </li>
+                             <li>ASSIGN: As the name describes, this clause assigns the file to a storage location in which the file will be stored</li>
+                             <li>
+                                ACCESS MODE: specifies how the the program can access the file. It can be from of the following three categories:
+                                <ol>
+                                   <li>Sequential</li>
+                                   <li>Dynamic</li>
+                                   <li>Random</li>
+                                </ol>
+                                <p>Syntax: ACCESS MODE IS {SEQUENTIAL/DYNAMIC/RANDOM} [RELATIVE KEY IS data-item-1].</p>
+                             </li>
+                             <li>RECORD KEY: This clause is required for indexed files. The RECORD KEY should be unique for each record. It cannot be duplicate. Syntax: [RECORD KEY IS data-item-1</li>
+                             <li>ALTERNATE RECORD KEY: An indexed file can have an alternate record key that can be assigned using this clause. Syntax: [ALTERNATE RECORD KEY IS data-item-5].</li>
+                             <li>ORGANIZATION: In COBOL a file can have the logical structure of either sequential, indexed, or relative. This clause specifies what is the logical structure of the file. Syntax: [ORGANIZATION IS] SEQUENTIAL/RELATIVE/INDEXED</li>
+                             <li>FILE STATUS: This clause indicates if the operations performed on the file was successful or not. Syntax: [FILE STATUS IS stat-item].</li>
+                          </ol>
+                       </li>
+                    </ol>
+                    <p class="in-pop-heading">DATA DIVISION.</p>
+                    <p>This division is optional. Data division supplies information about the data items that are processed in the program. The data division has two main sections</p>
+                    <ol>
+                       <li>FILE SECTION and</li>
+                       <li>WORKING-STORAGE SECTION. </li>
+                    </ol>
+                    </p>
+                    <p>Data division has an optional section called Linkage section.</p>
+                        <ol>
+                            <li>
+                                <p>File Section:</p>
+                                <p>File section handles the data that come from or goes to computer input/output devices such as keyboard and screen. Input/output devices are also known as computer peripherals. </p>
+                                <p>Syntax:</p>
+                                <code>DATA DIVISION.</code><br>
+                                <code>FILE SECTION.</code><br>
+                                <code> FD/SD filename</code><br>
+                                <p>FD stands for File Description. It indicates the layout of the file.</p>
+                                <p>SD stands for Sort Description. SD indicates if the file is a sort file.</p>
+                            </li>
+                            <li>
+                                <p>Working-storage section:</p>
+                                <p>This section handles the variables (data items) that are used by the program for manipulating data internally. This section cannot be accessed outside the program. The variables in this section are initialized when the program executes. There needs to be memory allocated to all data items in the section. Memory allocation for the variables happen when the program starts, and the assigned memory gets deallocated when the program ends. </p>
+                                <p>Syntax: </p>
+                                <code>DATA DIVISION.</code><br>
+                                <code>WORKING-STORAGE SECTION.</code><br>
+                                <code>[variables declaration]</code><br>
+                            </li>
+                            <li>
+                                <p>Linkage section:</p>
+                                <p>In this section, we can make the data available that can be accessed from outside the program. We can also access data from other programs in this section. Other programs can use the CALL command to access the data located in the linkage section of our program.  The linkage section is efficient when having a program with subprograms. The main program or subprogram CALL data back and forth. </p>
+                                <p>Syntax:</p>
+                                <code>DATA DIVISION.</code><br>
+                                <code>LINKAGE SECTION.</code><br>
+                                <code>[data item name]</code><br>
+                            </li>
+                        </ol>
+                        <p class="in-pop-heading">PROCEDURE DIVISION.</p>
+                        <p>This division has the logic of the program in it. The programmer writes the code for the specific operations that will be carried out the by the program. Generally, the statements in this division are executed in the order they are written, but the programmer can control the flow of the execution of statements using flow control statements. For example, the programmer can write a code to perform certain calculations based on the value of a variable. Flow control statements and other programming logic concepts will be discussed in the next section. </p>
+                </div>
+        </div>
+        
+       
+    </div>
+    <div class="containter">
+        <div data-id="example-widget" data-widget="{widget_hash}"></div>
+        
+    </div>
+    <div class="container ">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Recently Posted Challenges</h3>
+                    <h5>Here are a list of recent challenges with COBOL</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        {{#each challenge in cobol_challenges}}
+                        <a href="{{challenge.link}}" class="list-group-item">
+                            <em>Title: </em>
+                            {{challenge.title}} <br />
+                            <em>Description: </em>
+                            {{challenge.content}}
+                        </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Online Resources</h3>
+                    <p>Here is a list of useful online resources</p>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="https://www.w3schools.com/" target="_blank" class="list-group-item"><h2>W3Schools</h2><br /><p>Great resource for practicing what you learn</p></a>
+                        <a href="https://www.youtube.com/" target="_blank" class="list-group-item"><h2>Youtube</h2><br /><p>Great resource for practicing what you learn</p></a>
+                        <a href="#" class="list-group-item"><h2>Other Link</h2><br /><p>Great resource for practicing what you learn</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

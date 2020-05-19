@@ -1,0 +1,265 @@
+<template name="python_course" template="python_modules">
+    <style>
+        .panel > .panel-heading {
+            background-image: none;
+            background-color: #A02D67;
+            color: white;
+
+        }
+
+        .alert > .alert-success {
+            background-color: #A02D67;
+            color: white;
+
+        }
+
+        .progress  {
+          background-color: white;
+            color: white;
+            height: 50px;
+
+        }
+
+        .progress > .progress-bar-success {
+          background-color: #862D65;
+            color: white;
+
+        }
+
+        .btn-group > .btn-success {
+          background-color: #862D65;
+            color: white;
+            border: none;
+
+        }
+
+        .btn > .btn-success {
+          background-color: #862D65;
+            color: white;
+            border: none;
+            width: 230px;
+
+        }
+    </style>
+
+    {{#each module in python_modules}}
+        <div id="python_module_{{@index}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                         <h3 class="modal-title">{{module.title}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <html>
+                                {{{module.content}}}
+                            </html>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" data-target="#python_module_{{python_module_back @index}}">Back</button>
+                        <button type="button" class="btn btn-default python_module_next" data-dismiss="modal" data-toggle="modal" data-target="#python_module_{{python_module_next @index}}" value="{{@index}}">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+
+    <div class="header">
+        <center>
+            <br />
+        </center>
+    </div>
+    <div class="container">
+        <center>
+            <h1>Course Home: <strong>Python</strong>
+                <span type="button" class="glyphicon glyphicon-info-sign" data-toggle="modal" data-target="#info"></span>
+            </h1>
+            {{#if python_course_disabled_text}}
+                <h2>You cannot enroll in this course until you have completed Computational Thinking.</h2>
+            {{/if}}
+            <div id="info" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h3 class="modal-title">About Python</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Python is a widely used language for diverse uses such as web development, scientific research, machine learning, data analytics, etc. It is a highly flexible interpreted language that is in high demand.
+                                This course will take a beginning programmer through Hello World through variables, arithmetic operations, conditionals, loops, lists, dictionaries, and basic file processing. At the end of this course the student will be able to post a certificate to their LinkedIn account and be able to complete challenges to gain a better grasp of the language and how to use it in the real world.
+                                Successful completion of this course will permit you to attempt paid challenges and offer a certificate to showcase on your LinkedIn profile.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Course Progress</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-9 col-xs-12">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{python_course_progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{python_course_progress}}%">
+                                <h2>{{python_course_progress}}%</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <center>
+                        {{#if completed}}
+                        <div class="btn btn-right">    
+                                <button id="python_exam" class="btn btn-lg btn-success">Take Final Exam</button>
+                            </div>
+                        {{else}}
+                        <div class="btn btn-right">
+                            <button data-toggle="modal" data-target="#python_module_{{python_module_resume}}" class="btn btn-lg btn-success" {{python_course_disabled}}>Resume Course</button>
+                        </div>
+                        {{/if}}
+                        {{#if python_module_resume_title}}
+                            <h1>Current Lesson: <strong>{{python_module_resume_title}}</strong></h1>
+                        {{else}}
+                            <h1>Course Completed</h1>
+                        {{/if}}
+                    </center>
+                    <center>
+                        {{#if python_pretest}}
+                        <div class="btn btn-right"> 
+                            <button id="python_exam" class="btn btn-lg btn-success">Test Out</button>
+                        </div>
+                        {{/if}}
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Course Content</h3>
+                    <h5>Here are a list of lessons</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        {{#each module in python_modules}}
+                            {{#if is_module_completed @index}}
+                                <button class="list-group-item" data-toggle="modal" data-target="#python_module_{{@index}}">
+                                    <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                                    <p>{{module.description}}</p>
+                                    <p style="color:green;">You have completed this module. Click to revisit</p>
+                                </button>
+                            {{else if is_module_disabled @index }}
+                                <button class="list-group-item" data-toggle="modal" data-target="#python_module_{{@index}}" disabled>
+                                    <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                                    <p>{{module.description}}</p>
+                                    <p style="color:red;">You do not have access to this module yet.</p>
+                                </button>
+                            {{else}}
+                                <button class="list-group-item" data-toggle="modal" data-target="#python_module_{{@index}}">
+                                    <h4 class="list-group-item-heading"><strong>Lesson {{module.module_number}}:</strong> {{module.title}}</h4>
+                                    <p>{{module.description}}</p>
+                                    <p style="color:#f49d41;">Click to learn about {{module.title}}</p>
+                                </button>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Recently Posted Challenges</h3>
+                    <h5>Here are a list of recent challenges with Python</h5>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        {{#each challenge in python_challenges}}
+                            {{#if completed}}
+                            <button id="accept_challenge" value="{{challenge._id}}" class="list-group-item">
+                                <em>Title: </em>
+                                {{challenge.title}} <br />
+                                <em>Description: </em>
+                                {{challenge.content}}<br />
+                                <p style="color:green;">Click to work on a solution to this challenge!</p>
+                            </button>
+                            {{else}}
+                            <button class="list-group-item">
+                                <em>Title: </em>
+                                {{challenge.title}} <br />
+                                <em>Description: </em>
+                                {{challenge.content}}<br />
+                                <p style="color:red;">You have to complete this course before attempting the challenge</p>
+                            </button>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12" >
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3>Online Resources</h3>
+                    <p>Here is a list of useful online resources</p>
+                </div>
+                 <div class="panel-body">
+                    <div class="list-group">
+                        <!--<a href="https://www.w3schools.com/" target="_blank" class="list-group-item"><h2>W3Schools</h2><br/><p>Great resource for practicing what you learn
+                      
+                        </p></a>
+                        <a href="https://www.youtube.com/" target="_blank" class="list-group-item"><h2>Youtube</h2><br/><p>Great resource for practicing what you learn</p>
+                            
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/mQWaufPoE9s?rel=0" frameborder="0" allow="autoplay; encrypted-media" align = "middle" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/gZGRD6Lg1n0?rel=0" frameborder="0" allow="autoplay; encrypted-media" align = "middle" allowfullscreen></iframe>
+
+                        </a>
+                        <a href="#" class="list-group-item"><h2>Other Link</h2><br/><p>Great resource for practicing what you learn</p></a>
+                        --><div class="list-group-item">
+                                <h2>Youtube</h2>
+                                <ul>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/sxUJKn6TJOI" target="_blank">What is Computational Thinking?</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/yQVTijX437c" target="_blank">Computational Thinking: Decomposition</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/SixLnIDV1yY" target="_blank">Computational Thinking: Pattern Recognition</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/cbZUnuyxcVs" target="_blank">Pattern Recognition - Introduction</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/ixgGGzZXQ7E" target="_blank">Pattern Recognition -  In the Classroom</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/jV-7Hy-PF2Q" target="_blank">Abstraction - Computational Thinking</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/9ePRa5nahYI" target="_blank">CT at Google: Facilitating Software and Game Development</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/6hfOvs8pY1k" target="_blank">What's an algorithm? - David J. Malan</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/ROUV90QmqUA" target="_blank">Algorithms</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/o1mNf6_YqZM" target="_blank">CT at Google: Findable Photos Using Data and Algorithms</a></li>
+                                        <li> <a class="in-pop-link" href="https://youtu.be/mUXo-S7gzds" target="_blank">Computatioanl Thinking by JULES</a></li>
+                                </ul>
+                                   
+                            </div>
+                        <div class="list-group-item">
+                            <h2>Course Addendum</h2>
+                            <ul>
+                                <li><a class="in-pop-link" href="https://tetris.com/play-tetris/?utm_source=top_nav_link&amp;utm_medium=webnav&amp;utm_campaign=playNow_btm_tst&amp;utm_content=text_play_now">Play tetris</a></li>
+                                <li><a href="http://games.thinkingmyself.com/">Computational Thinking Games</a></li>
+                                <li><iframe width="800" height="500" frameborder="0" src="http://pythontutor.com/visualize.html#code=%23%20Inheritance%20-%20object-oriented%20programming%20intro%0A%23%20Adapted%20from%20MIT%206.01%20course%20notes%20%28Section%203.5%29%0A%23%20http%3A//mit.edu/6.01/mercurial/spring10/www/handouts/readings.pdf%0A%0Aclass%20Staff601%3A%0A%20%20%20%20course%20%3D%20'6.01'%0A%20%20%20%20building%20%3D%2034%0A%20%20%20%20room%20%3D%20501%0A%0A%20%20%20%20def%20giveRaise%28self,%20percentage%29%3A%0A%20%20%20%20%20%20%20%20self.salary%20%3D%20self.salary%20%2B%20self.salary%20*%20percentage%0A%0Aclass%20Prof601%28Staff601%29%3A%0A%20%20%20%20salary%20%3D%20100000%0A%0A%20%20%20%20def%20__init__%28self,%20name,%20age%29%3A%0A%20%20%20%20%20%20%20%20self.name%20%3D%20name%0A%20%20%20%20%20%20%20%20self.giveRaise%28%28age%20-%2018%29%20*%200.03%29%0A%0A%20%20%20%20def%20salutation%28self%29%3A%0A%20%20%20%20%20%20%20%20return%20self.role%20%2B%20'%20'%20%2B%20self.name%0A%0Apat%20%3D%20Prof601%28'Pat',%2060%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></li>
+                            </ul>
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

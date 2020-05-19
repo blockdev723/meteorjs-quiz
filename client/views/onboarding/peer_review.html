@@ -1,0 +1,131 @@
+<!------------------------------------------------
+| @author: sandya-chaudhary
+| github.com/nas-pang
+| 
+| Peer Review
+|
+-------------------------------------------------->
+<template name="peer_review">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: left; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>	
+
+		<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+
+			<div class="row">
+				<h1 style="font-weight: bold;">Peer Review</h1>				
+			</div>
+
+			<div class="row">
+				<div class="accordion" id="accordionDiv">
+					{{#each reviewdata}}
+						<div class="card">
+							<div class="card-header mooqita-border" id="{{_id}}">
+								<div class="mooqita-collapse-header" type="button" data-toggle="collapse" data-target="#{{unit_id}}" aria-expanded="true" aria-controls="{{unit_id}}">
+									{{unit_name}}		  
+								</div>
+								
+							</div>
+						
+							<div id="{{unit_id}}" class="collapse"   aria-expanded="false" aria-labelledby="{{_id}}" data-parent="#accordionDiv">
+								<div class="card-body">
+									<ul class="list-group">
+										{{#each questions}}
+											<li class="list-group-item mooqita-peer-review-li">
+												<div class="row" style="margin-top: auto; margin-bottom: auto; width:100%">
+													<div class="col-12 col-md-8">
+														<!-- <a href="{{pathFor 'peer_review.detail' _id=question_id}}" style="color: black;" class="go-detail">{{question}}</a> -->
+														<a href="peer_review_detail" style="color: black;" class="go-detail">{{question}}</a>
+													</div>
+													<div class="col-6 col-md-4 text-right">
+														<p>{{createdAt}}</p>
+													</div>
+												</div>
+											</li>
+										{{/each}}													
+									</ul>
+								</div>
+							</div>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+           
+        </div>
+        
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<template name="peer_review_detail">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: left; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>	
+
+		<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+
+			<div class="row">
+				<h1 style="font-weight: bold;">Peer Review</h1>				
+			</div>
+
+			<div class="row">
+				<div class="accordion" id="accordionDiv">
+						<div class="card">
+							<div class="card-header mooqita-border" id="{{data.unit_id}}">
+								<div class="mooqita-collapse-header" type="button">
+									{{data.unit_name}}		  
+								</div>
+								
+							</div>
+						
+							<div id="{{data.question_id}}" class="">
+								<div class="card-body">
+									<ul class="list-group">
+										{{#each data.answers}}
+											<li class="list-group-item" style="margin-bottom: 10px;">
+												<div class="row" style="margin-top: auto; margin-bottom: auto; width:100%">
+													<div class="col-12 col-md-8" style="color: black;">
+														<p>
+															{{text}}
+														</p>
+														{{#if isImage img }}
+														<img style="max-width: 300px" src="/images/temp_peer_review.png">
+														{{/if}}
+													</div>
+													<div class="col-6 col-md-4 text-right">
+														<p>{{createdAt}}</p>
+													</div>
+												</div>
+											</li>	
+										{{/each}}												
+									</ul>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<h3 style="font-weight: bold;">Your Response</h3>	
+				<form class="new-review">
+					<input type="hidden" name="hquestion_id" value={{data.question_id}}>
+					<div class="" style="padding: 20px; border: solid 1px;">
+						<div>
+							<textarea rows="6" id="comment" name="comment" style="width: 100%;" placeholder="Enter text here..."></textarea>
+						</div>
+
+						<div style="margin-top: 15px; height: 30px">				
+							<i class="fa fa-file-image-o fa-2x" style="float: left; height: 30px"></i>	
+							<input type="submit" class="btn btn-info" id="review-submit" style="float:right;" value="Submit">
+						</div>
+					</div>
+				</form>
+			</div>
+           
+        </div>
+        
+	{{/mooqita_wide_spacing}}
+</template>
+

@@ -1,0 +1,123 @@
+<!------------------------------------------------
+|
+|	COBOL Quiz
+|
+-------------------------------------------------->
+
+<template name="design_quiz" template="quiz">
+		{{#mooqita_wide_spacing}}
+		<div>
+    <form id="form-create-quiz">
+
+        <div class="mooqita-justify-between" style="padding-top: 30px">
+
+            <!-- <div> -->
+                <!-- <h1> -->
+                    <img style="width: 300px" src="/images/mooqita.jpg">
+                <!-- </h1> -->
+            <!-- </div> -->
+            <!-- <div class=""> -->
+                <span class="mooqita-center">
+                <!-- <a class="btn btn-theme" href="peer_review">Save</a> -->
+                <!-- <a class="btn btn-theme" href="peer_review" style="margin-left: 15px;">Publish</a> -->
+                <input type="submit" class="btn btn-theme  open-insert-modal" style="margin-left: 15px;" value="Post Quiz" data-backdrop="false">
+            </span>
+            <!-- </div> -->
+        </div>
+    
+        <div style="border: groove; padding: 30px; margin-top: 15px;" >
+            <div style="padding: 10px;">
+                <input type="text" class="form-control" id="designer_quiz_title" name="designer_quiz_title" placeholder="Quiz Title" autocapitalize="none" autocorrect="off">
+            </div>
+            <div style="padding: 10px;">
+                <textarea type="text" class="form-control" style="height: 150px" id="designer_quiz_text" name="designer_quiz_text" placeholder="Quiz Text" autocapitalize="none" autocorrect="off"></textarea>
+            </div>
+        </div>
+        <!-- <div style="border: hidden; padding: 20px;"></div> -->
+
+        <!-- <div style="float:right;  margin: 10px 40px;">
+         <input type="button" class="btn btn-info  open-insert-modal" value="Post Quiz" data-backdrop="false">
+        </div> -->
+        <div id="insertModal" class="modal fade" style="margin-left: 25%;margin-top: 10%;width: 50%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h2 class="modal-title">Quiz Posted</h2>
+                </div>
+                <div class="modal-body">
+						<!-- body code -->
+										<br>
+										The quiz was posted succssfully.
+										<br>
+										<br>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="border: hidden; padding: 20px;"></div>
+        <!-- <div style="border: hidden; padding: 50px;"></div> -->
+        {{#each createquiz}}
+					<div style="border: groove; padding: 40px;">
+
+							<div class="mooqita-justify-between">
+									<h3>Question {{index}}</h3>
+
+									<select class="question-selection" name="{{index}}" id="{{index}}" style="width: 200px;" >
+											<option value="" selected={{isSelected type "none"}}>Please Select Type</option>
+											<option value="mc" selected={{isSelected type "mc"}}>Multiple Choice</option>
+											<option value="fb" selected={{isSelected type "fb"}}>Fill in the Blank</option>
+											<option value="fr" selected={{isSelected type "fr"}}>Free Response</option>
+									</select>            
+							</div>                   
+
+							{{#if isSelected type "mc"}}
+							<div id="question1MulDiv-{{index}}" style="margin-top: 20px">
+									<input type="text" class="form-control" id="designer_quiz_title-{{index}}" name="designer_quiz_title-{{index}}" placeholder="Write your question here">
+									
+									<div style="display: flex; padding-top: 15px; align-items:center">
+											<input type="checkbox" class="mooqita-checkbox" id="q1o1-{{index}}" name="q1o1-{{index}}" value="q1o-{{index}}">                
+											<input type="text" class="form-control" style="margin-left: 20px; margin-right: 20px;" id="questionOption1-{{index}}" name="questionOption1-{{index}}" placeholder="write here"><br>
+									</div>
+
+									<div style="display: flex; padding-top: 15px; align-items:center">
+											<input type="checkbox" class="mooqita-checkbox" id="q1o2-{{index}}" name="q1o2-{{index}}" value="q1o-{{index}}">                
+											<input type="text" class="form-control" style="margin-left: 20px; margin-right: 20px;" id="questionOption2-{{index}}" name="questionOption2-{{index}}" placeholder="write here"><br>
+									</div>
+
+									<div style="display: flex; padding-top: 15px; align-items:center">
+											<input type="checkbox" class="mooqita-checkbox" id="q1o3-{{index}}" name="q1o3-{{index}}" value="q1o-{{index}}">                
+											<input type="text" class="form-control" style="margin-left: 20px; margin-right: 20px;" id="questionOption3-{{index}}" name="questionOption3-{{index}}" placeholder="write here"><br>
+									</div>
+
+									<div style="display: flex; padding-top: 15px; align-items:center">
+											<input type="checkbox" class="mooqita-checkbox" id="q1o4-{{index}}" name="q1o4-{{index}}" value="q1o-{{index}}">                
+											<input type="text" class="form-control" style="margin-left: 20px; margin-right: 20px;" id="questionOption4-{{index}}" name="questionOption4-{{index}}" placeholder="write here"><br>
+									</div>   
+							</div>
+							{{/if}}
+
+							{{#if isSelected type "fb"}}
+							<div id="question1FillDiv" style="margin-top: 20px;">
+									<input type="text" class="form-control" id="designer_quiz_title-{{index}}" name="designer_quiz_title-{{index}}" placeholder="Write your question here" value="What is output for −b = [11,13,15,17,19,21] print(b[::2])_">
+									<input type="text" class="form-control" style="margin-top: 20px;" id="designer_quiz_answer-{{index}}" name="designer_quiz_answer-{{index}}" placeholder="Fill in the blank" >
+							</div>
+							{{/if}}
+
+							{{#if isSelected type "fr"}}
+							<div id="question1FreeDiv" style="margin-top: 20px;">
+									<input type="text" class="form-control" id="designer_quiz_title-{{index}}" name="designer_quiz_title-{{index}}" placeholder="Write your question here" value="What is the importance of commenting code?">
+									<textarea type="text" rows="6" class="form-control" style="margin-top: 20px;" id="designer_quiz_answer-{{index}}" name="designer_quiz_answer-{{index}}" placeholder="Write Answer Here" ></textarea>
+							</div>
+							{{/if}}
+
+						</div>
+					{{/each}}
+
+        <div style="display:flex; align-items: center; justify-content:center; margin-top:20px; margin-bottom:20px">
+            <a class="btn btn-theme" href="" id="add-question">Add Question</a>
+        </div>
+			</form>
+			</div>
+	{{/mooqita_wide_spacing}}
+</template>

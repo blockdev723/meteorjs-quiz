@@ -1,0 +1,1413 @@
+<!------------------------------------------------
+|
+|	Challenge
+|
+-------------------------------------------------->
+<template name="designed_challenges">
+	{{#mooqita_wide_spacing}}
+		<div class="item-set padding-top">
+			<h1>
+				Challenges
+				<div class="btn-group pull-right">
+					<div class="btn btn-theme"
+							 style="min-width: 40px;"
+							 id="add_challenge">
+						{{>popout_base title="New Blank Challenge"
+										content="Click to add a new challenge."
+										icon_class="fa fa-2x fa-plus"}}
+					</div>
+
+					<div class="btn btn-theme"
+							 style="min-width: 40px;"
+							 id="template_challenge">
+
+					{{>popout_base title="Create Challenge from Template"
+									content="Click to select a template."
+									icon_class="fa fa-2x fa-file"}}
+					</div>
+				</div>
+			</h1>
+
+			<p class="padding-next">
+				Here you can find all your challenges.
+			</p>
+
+			{{#paging subscription="my_challenges" page=0 count=10
+								parameter=parameter collection_name="challenges"}}
+				{{#each item in items}}
+					{{>challenge_preview challenge=item template="challenge_design"}}
+				{{else}}
+					<hr>
+					<h1 class="text-center padding-next"
+							style="padding-bottom: 45px">
+						<em>No Challenges yet.</em>
+					</h1>
+				{{/each}}
+				<hr>
+			{{/paging}}
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+<!------------------------------------------------
+|
+|	temporary techermodule added here by srividya Preview
+|
+-------------------------------------------------->
+<template name="teacher-designed_challenges">
+	{{#mooqita_wide_spacing}}
+		<div class="item-set padding-top">
+			<h1>
+				Modules
+				<div class="btn-group pull-right">
+					<div class="btn btn-theme"
+							 style="min-width: 40px;"
+							 id="add_challenge">
+						{{>popout_base title="New Blank Challenge"
+										content="Click to add a new Syllabus."
+										icon_class="fa fa-2x fa-plus"}}
+					</div>
+
+					<div class="btn btn-theme"
+							 style="min-width: 40px;"
+							 id="template_challenge">
+
+					{{>popout_base title="Create Challenge from Template"
+									content="Click to select a template."
+									icon_class="fa fa-2x fa-file"}}
+					</div>
+				</div>
+			</h1>
+
+			<p class="padding-next">
+				Here you can find all your Syllabus.
+			</p>
+
+			{{#paging subscription="my_challenges" page=0 count=10
+								parameter=parameter collection_name="challenges"}}
+				{{#each item in items}}
+					{{>challenge_preview challenge=item template="challenge_design"}}
+				{{else}}
+					<hr>
+					<h1 class="text-center padding-next"
+							style="padding-bottom: 45px">
+						<em>No Syllabus yet.</em>
+					</h1>
+
+                    <h2><input type = submit value="Take Quiz Here !" href="comp_thinking_course" > </h2>
+			    <div class="right">
+				    <a class="pull-right btn btn-theme" href="comp_thinking_course">
+					    Take quiz Right Here !
+					    <span class="glyphicon glyphicon-chevron-right"></span>
+				    </a>
+			    </div>
+				{{/each}}
+				<hr>
+			{{/paging}}
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+|	learner profile page
+    added by srividya gopaluni
+|
+-------------------------------------------------->
+<template name="learner-profile">
+	{{#mooqita_wide_spacing}}
+        <h1 style="text-align: center; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>
+
+        <div class="item-set padding-top">
+            <h1>
+                Learner Profile
+            </h1>
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Profile</a></li>
+                <li><a href="#tab2" data-toggle="tab">Module Progress</a></li>
+                <li><a href="#tab3" data-toggle="tab">Challenges Completed</a></li>
+                <li><a href="#tab4" data-toggle="tab">Review Completed</a> </li>
+                <li><a href="#tab5" data-toggle="tab">Settings</a> </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <div style="border: groove; padding: 50px; color: #8d0162;" align="left">
+                    <b>Profile Name:</b>
+                        <b>{{g_profile_name}}</b>
+                        <br>
+                    <b>First Name:</b>
+                        <b>{{g_profile_first_name}}</b>
+                        <br>
+                    <b>Profile Id</b>
+                        <b>{{g_profile_id}}</b>
+                        <br>
+
+                    <span>Age: 25</span>
+                        <br>
+                    <span>Start Training Date: March 12,2020</span>
+                    <span>Age: 25</span>
+                        <br>
+                    <span>Previous Knowledge : Some Experience on Java</span>
+                    <span>Goals: Programmer in small company</span>
+                        <br>
+                    <span>Location: Omaha, NE</span>
+
+
+
+
+
+                </div>
+                    <a class="btn btn-primary btnNext">Next</a>
+                </div>
+
+
+                <div class="tab-pane" id="tab2">
+                    <div style="border: hidden; padding: 50px;"></div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Computational Thinking           100% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Python           100% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>COBOL          0% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+
+                    <a class="btn btn-primary btnNext">Next</a>
+                    <a class="btn btn-primary btnPrevious">Previous</a>
+                </div>
+
+
+                <div class="tab-pane" id="tab3">
+                    <div style="border: hidden; padding: 50px;"></div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Python- User Input        Company 1            3/10/2020        Approved</B> </span>
+
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Python- File Processing           Company 2               3/30/2020         In Progress</B> </span>
+
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>COBOL Basic Training         Company 3             3/10/2020                  In Progress </B> </span>
+
+                        </div>
+
+                    <a class="btn btn-primary btnPrevious">Previous</a>
+                </div>
+
+
+                <div class="tab-pane" id="tab4">
+                    <div style="border: hidden; padding: 50px;"></div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Computational Thinking           100% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>Python           100% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+                        <div style="border: groove; padding: 50px; color: #8d0162;" align="left" >
+                            <span value="unit1"><B>COBOL          0% </B> </span>
+                             <span><b>Start Date: 04/01/2020</b></span>
+                             <span>Tests Average : 80%</span>
+                        </div>
+
+                    <a class="btn btn-primary btnPrevious">Previous</a>
+                </div>
+
+                <div class="tab-pane" id="tab5">
+
+
+                    <div style="border: groove; padding: 50px; color: #8d0162;" align="left">
+                        <b>Profile Name:</b>
+                            <b>{{g_profile_name}}</b>
+                            <br>
+                        <b>First Name:</b>
+                            <b>{{g_profile_first_name}}</b>
+                            <br>
+                        <b>Profile Id</b>
+                            <b>{{g_profile_id}}</b>
+                            <br>
+
+                        <span>Age: 25</span>
+                            <br>
+                        <span>Start Training Date: March 12,2020</span>
+                        <span>Age: 25</span>
+                            <br>
+                        <span>Previous Knowledge : Some Experience on Java</span>
+                        <span>Goals: Programmer in small company</span>
+                            <br>
+                        <span>Location: Omaha, NE</span>
+
+
+
+
+
+                    </div>
+                        <a class="btn btn-primary btnNext" href="profile">Edit Profile</a>
+
+
+                </div>
+            </div>
+        </div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+
+
+
+<!------------------------------------------------
+|
+|	Teacher Design a Test Challenge
+    added by srividya gopaluni
+|
+-------------------------------------------------->
+
+<template name="teacher-designed_quiz_challenges">
+    {{#mooqita_wide_spacing}}
+		<h1 style="text-align: center; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>
+		<div class="item-set padding-top">
+			<h1>
+				Design a Test
+            </h1>
+            <div>
+			    <p class="padding-next">
+                    Test Module
+			    </p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-theme" href="design_quiz" >
+				    	   + Add Quiz
+                 <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class=" btn btn-theme" href="design_quiz" >
+				    	    Grade Quiz
+                 <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class=" btn btn-theme" href="posted_quiz">
+				    	    Posted Quiz
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>&nbsp;&nbsp;
+
+            </div>
+		</div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+|	Leaner Peer Review Added by srividya gopaluni
+|
+-------------------------------------------------->
+<template name="learner_designed_challenges">
+	{{#mooqita_wide_spacing}}
+		<div class="item-set padding-top">
+			<h1>
+				Peer Review
+				<div class="btn-group pull-right">
+					<div class="btn btn-theme"
+							 style="min-width: 40px;"
+							 id="add_challenge">
+						{{>popout_base title="Post a New Question"
+										content="Click to add a new question."
+										icon_class="fa fa-2x fa-plus"}}
+					</div>
+
+				</div>
+			</h1>
+
+			<p class="padding-next">
+				Here you can find all the questions posted and answered. Discussion Board.
+			</p>
+
+
+
+            <div style="border: hidden; padding: 50px;"></div>
+            <div style="border: groove; padding: 50px; color: #8d0162;" align="left" id = "unitDiv1" name="unit1" class="'unit1" onclick="myFunction()">
+                <span value="unit1"><B> UNIT 1 AGILE AND SOFTWARE DEVELOPMENT </B> </span>
+            </div>
+            <div style="border: groove; padding: 50px; color: #8d0162; display: none;" id="unit1q1">
+                <div align="left">
+                    <a  href="learner_peer_comment_challenges" style="color: black">Can someone Help with this import statement</a>
+                </div>
+            </div>
+            <div style="border: groove; padding: 50px; color: #8d0162; display: none" id="unit1q2">
+                <div align="left">
+                    <a  href="learner_peer_comment_challenges" style="color: black">I don't understand why my print statement is not working. Need Help?</a>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div style="border: hidden; padding: 50px;"></div>
+            <div style="border: groove; padding: 50px;">
+                <div align="left">
+                    <span value="mc"><B>UNIT 2 AGILE AND SOFTWARE DEVELOPMENT</B></span>
+                </div>
+            </div>
+
+            <div style="border: hidden; padding: 50px;"></div>
+            <div style="border: groove; padding: 50px;">
+                <div align="left">
+                    <span value="mc"><B>UNIT 3 AGILE AND SOFTWARE DEVELOPMENT</B></span>
+                </div>
+            </div>
+
+            <div style="border: hidden; padding: 50px;"></div>
+            <div style="border: groove; padding: 50px;">
+                <div align="left">
+                    <span value="mc"><B>UNIT 4 AGILE AND SOFTWARE DEVELOPMENT</B></span>
+                </div>
+            </div>
+
+
+
+
+         </div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+
+
+
+<!------------------------------------------------
+|
+|	Leaner Peer Comment Section Added by srividya gopaluni
+|
+-------------------------------------------------->
+<template name="learner_peer_comment_challenges">
+	{{#mooqita_wide_spacing}}
+		<div class="item-set padding-top">
+			<h1>
+				Peer Review
+
+			</h1>
+
+
+            <div style="border: hidden; padding: 50px;"></div>
+            <div style="border: groove; padding: 50px; color: #8d0162;" align="left">
+             <!--   <div align="left" name="unit1" id="unit1"> -->
+                    <span value="unit1" ><B><a href="#" > UNIT 1 AGILE AND SOFTWARE DEVELOPMENT </a> </B> </span>
+            </div>
+
+            <div style="border: groove; padding: 50px; color: #8d0162;" >
+                <div align="left" >
+                    <p >Can someone Help with this import statement</p>
+                    <p>I have this for my code right now but i think line 1 might be the issue.</p>
+                    <p>My code goes like this:</p>
+                    <p>import murach.business.InvoiceCalculations;
+                        import java.text.NumberFormat;
+                        import murach.business.InvoiceCalculations;
+                        import java.text.NumberFormat;
+                    </p>
+                </div>
+            </div>
+            <div style="border: groove; padding: 50px; color: black;">
+                <div  align="left"  >
+                    <p>"Unused code doesn't mean that you have a syntax error.
+                        It just means that the import is not necessary, because the current code of the class doesn't use the imported class yet.
+                        If you add code inside the class that uses the imported class, the warning will disappear.
+                        Note that, with current IDEs, you usually don't bother adding import statements manually.
+                        You use the class without importing it, and use a keyboard shortcut (or autocompletion) to add the necessary imports (and remove the unused ones) automatically.
+                        In Netbeans, the command is "Fix Imports (Ctrl-Shift-I)"</p>
+                </div>
+            </div>
+            <div style="border: hidden; padding: 50px;"></div>
+
+            <div>
+                <p>Your Response</p>
+                <textarea rows="4" cols="50" name="comment" form="usrform">
+                Enter text here...</textarea>
+
+            </div>
+
+            <div style="float:right;  margin: 10px 40px;">
+                <input type="button" class="btn btn-info  open-insert-modal" value="submit" data-backdrop="false">
+            </div>
+
+            <div id="insertModal" class="modal fade" style="margin-left: 25%;margin-top: 10%;width: 50%;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Your comment has been posted</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+         </div>
+	{{/mooqita_wide_spacing}}
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge Preview
+|
+-------------------------------------------------->
+<template name="challenge_preview">
+	<hr>
+
+	<a href="{{g_build_url template (g_object challenge_id=challenge._id) app login_type}}"
+		 class="item-set-element animated_0_5_s">
+		<div>
+			<h2>
+				{{title}}
+
+				{{#if challenge.published}}
+					<span class="badge background-contrast pull-right">
+							Public <span class="fa fa-check"></span>
+					</span>
+				{{else}}
+					<span class="badge background-theme pull-right">
+							Not yet public <span class="fa fa-edit"></span>
+					</span>
+                    <span class="badge background-theme pull-right">
+							write a peer review <span class="fa fa-edit"></span>
+					</span>
+				{{/if}}
+			</h2>
+		</div>
+
+		<p class="small">{{challenge.created}}</p>
+
+		{{>more content=content}}
+	</a>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge Editor
+|
+-------------------------------------------------->
+<template name="challenge_design">
+	{{#mooqita_with_sidebar}}
+		<div class="col-xs-12">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right" style="padding: 10px 0px;">
+					<li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 id="challenge_settings">
+							Settings
+						</a>
+					</li>
+
+					<li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 id="challenge_role">
+							Role
+							{{#unless challenge.role}}
+								<span class="fa fa-question-circle color-contrast"></span>
+							{{/unless}}
+						</a>
+					</li>
+
+					<li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 id="challenge_competencies">
+							Competencies
+						</a>
+					</li>
+
+					{{#if challenge.self_service}}
+						<li role="presentation">
+							<a class="navigation-button control-navigate menu-main-item"
+								 id="self_design">
+								Edit
+							</a>
+						</li>
+					{{else}}
+						<li role="presentation">
+							<a class="navigation-button control-navigate menu-main-item"
+								 id="mooqita_design">
+								Description
+								{{#unless challenge.description}}
+									<span class="fa fa-question-circle color-contrast"></span>
+								{{/unless}}
+							</a>
+						</li>
+
+						<li role="presentation">
+							<a class="navigation-button control-navigate menu-main-item"
+								 id="challenge_review">
+								Challenge
+							</a>
+						</li>
+					{{/if}}
+
+					<li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 id="challenge_solutions">
+							Candidates
+						</a>
+					</li>
+
+					<li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 id="message_candidates">
+							Message
+						</a>
+					</li>
+
+                    <li role="presentation">
+						<a class="navigation-button control-navigate menu-main-item"
+							 href="learner-profile">
+							Profile
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		{{#unless Template.subscriptionsReady}}
+			{{>wait}}
+		{{else}}
+			{{#mooqita_sidebar}}
+				{{>challenge_todo_list challenge}}
+			{{/mooqita_sidebar}}
+
+			{{#mooqita_main}}
+				{{>Template.dynamic template=main_template data=challenge}}
+			{{/mooqita_main}}
+		{{/unless}}
+	{{/mooqita_with_sidebar}}
+</template>
+
+
+<template name="challenge_todo_list">
+	<div class="alert {{theme}}" style="margin: 5px;">
+		<h2 style="	padding: 0px; margin: 0px 0px 10px 0px;">
+			Todo List: Challenge
+		</h2>
+
+		<p>
+			A summary of things you need to do before
+			publishing your challenge:
+		</p>
+
+		<ul style="padding: 10px 0px 10px 15px;">
+			{{#unless promo}}
+				<li>Do not forget to use your promo code if you have one.</li>
+			{{/unless}}
+
+			{{#if self_service}}
+				{{#unless title}}
+					<li>Give your challenge a title (required).</li>
+				{{/unless}}
+
+				{{#unless content}}
+					<li>Provide a description of the challenge (required).</li>
+				{{/unless}}
+
+				{{#unless num_reviews}}
+					<li>Define how many reviews learners have to write to finish the challenge.</li>
+				{{/unless}}
+
+				{{#unless link}}
+					<li>Add a link to the challenge context or project (optional).</li>
+				{{/unless}}
+
+				{{#unless material}}
+					<li>Add additional materials (optional).</li>
+				{{/unless}}
+
+				{{#unless g_is_saved "Challenges"}}
+					<li>Save it!</li>
+				{{/unless}}
+			{{else}}
+				{{#unless requested}}
+					{{#unless description}}
+						<li>Please give us a short description of the challenge you want (required).</li>
+					{{/unless}}
+
+					{{#unless role}}
+						<li>Let us know which role your candidate will fill (required).</li>
+					{{/unless}}
+				{{/unless}}
+			{{/if}}
+		</ul>
+
+		{{#unless self_service}}
+			{{#unless requested}}
+				<p class="padding-next">
+					If you think you have all information for us just click the
+					request button below and one of our challenge designer will
+					take care of the rest.
+				</p>
+
+				{{#unless is_publishable}}
+					<span class="btn-group btn-group-justified">
+						<div class="btn btn-theme" {{request_disabled}}
+								 id="request">Request Challenge</div>
+					</span>
+				{{/unless}}
+			{{else}}
+				<p>
+					Nothing much for you to do right now. Just relax and let us
+					do the work. We let you know once your challenge is ready.
+				</p>
+			{{/unless}}
+		{{/unless}}
+
+		{{#if is_publishable}}
+			{{#if published}}
+				<h2>Congratulation your challenge is online</h2>
+
+				<p>
+					Share the link with your candidates and see how they perform.
+					You can monitor the progress under "Candidates".
+				</p>
+			{{else}}
+				<h2>You can now publish your challenge</h2>
+
+				<p class="padding-next">
+					If you checked your challenge and like what you see just click
+					the publish button below and share the link with your candidates.
+				</p>
+
+				<span class="btn-group btn-group-justified">
+					<div class="btn btn-contrast" {{publish_disabled}}
+							 id="publish">Publish Challenge</div>
+				</span>
+			{{/if}}
+		{{else}}
+			<h2>You can not yet publish your challenge</h2>
+		{{/if}}
+	</div>
+</template>
+
+
+<template name="challenge_settings">
+	<h1 style="padding-top: 5px; margin-top: 0px">Basic Settings</h1>
+
+	<p style="padding-bottom: 10px;">
+		This is the link you can share with your candidates.
+		You can monitor their progress under "Candidates".
+	</p>
+
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon btn-theme">
+				Shareable link:
+			</div>
+
+			<div class="form-control"
+					 style="background: #f5f5f5; overflow: hidden; min-height: 40.5px;"
+					 id="challenge_url">
+				<div style="white-space:nowrap">
+					{{#if g_is_public "challenges"}}
+						{{g_build_url "solution" (g_object challenge_id=_id) "app"}}
+					{{else}}
+						Not yet public
+					{{/if}}
+				</div>
+			</div>
+
+			<div class="input-group-btn" id="icon_download" title="select the entire url">
+				<button type="button" class="btn btn-theme">
+					<span class="glyphicon glyphicon-download"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div style="padding-top: 15px">
+		<div class="form-group">
+			{{#if promo}}
+				<label>Used Promotion Code</label>
+				<div class="tags">{{promo}} <span class="fa fa-check color-contrast"></span></div>
+				<small id="{{field}}_explain" class="form-text text-muted">
+					This is the promo code for this challenge.
+				</small>
+			{{else}}
+				{{>basic_input label="Promotion Code" collection_name="challenges" item_id=_id field="promo"
+						placeholder="your code here"	explain="Enter your promotion code."}}
+			{{/if}}
+		</div>
+
+		<div class="form-group">
+			{{>toggle_button collection_name="Challenges"
+					item_id=_id field="no_solution_notification" label="Stop notifications"
+					explain="Get rid of all those email notifications about candidates for this challenge."}}
+		</div>
+
+		<div class="form-group">
+			{{>toggle_button collection_name="Challenges"
+					item_id=_id field="self_service" label="Do it yourself"
+					explain="In case you want to design the challenge yourself check this box."}}
+		</div>
+
+		{{#if self_service}}
+			<div class="form-group">
+				{{>toggle_button collection_name="Challenges"
+						item_id=_id field="self_service_help" label="Design support"
+						explain="In case you want us to help you design the challenge check this box."}}
+			</div>
+            <div  class = "card">
+                <div class="card header">
+                    <h4>Write your Peer Review Here !!</h4>
+                </div>
+
+                <form action="/html/tags/html_form_tag_action.cfm" method="post">
+                    <div>
+                        <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+                        Hey...Write your Peer Review Here..!!!
+                        </textarea>
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+
+            </div>
+
+		{{/if}}
+	</div>
+</template>
+
+
+<template name="challenge_role">
+	<h1 style="padding-top: 5px; margin-top: 0px">Role</h1>
+
+	<p>
+		The role your candidate is supposed to fill will help us to reach right
+		candidates and help you designing your challenge.
+	</p>
+
+	{{>job_role collection_name="challenges" item_id=_id field="role"}}
+</template>
+
+
+<template name="challenge_competencies">
+	<h1 style="padding-top: 5px; margin-top: 0px">Competencies</h1>
+
+	<p>
+		Finding the candidate with the right skill set is important.
+		However, Mooqita can do more for you. We can help you find the person
+		that will complement your teams social fabric. Select any number of
+		competencies you deem important for candidates for this job posting.
+	</p>
+
+	{{>job_competency collection_name="challenges" item_id=_id}}
+</template>
+
+
+<template name="message_candidates">
+	<h1 style="padding-top: 5px; margin-top: 0px">Write your candidates</h1>
+
+	<p>
+		If you need to get in touch with your learners
+		you can use this message system.
+	</p>
+
+	<div class="form-group">
+		<div class="input-group">
+			<input placeholder="Subject" class="form-control" type="text" id="subject"/>
+
+			<div class="input-group-btn" id="icon_download" title="select the entire url">
+				<div class="btn btn-theme" id="send" {{send_disabled}}>
+					{{#if send_disabled}}
+						Sending mail
+						<span class="glyphicon glyphicon-refresh spin"></span>
+					{{else}}
+						Send Message
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<textarea  class="form-control"
+							 placeholder="Your message"
+							 id="message" rows="8"></textarea>
+	</div>
+</template>
+
+
+
+<template name="mooqita_design">
+	<h1 style="padding-top: 5px; margin-top: 0px">Challenge Description</h1>
+
+	<p>
+		Let us know what you want to learn about your candidates with this challenge.
+		You do not have to go into detail. We will get in touch with to you if necessary.
+		If you have any questions please contact our
+		<a href="mailto:info@mooqita.com?Subject=Challenge%20description%20help">support team</a>.
+	</p>
+
+	{{>text_input collection_name="challenges" field="description" item_id=_id rows=8
+			placeholder="We look for a frontend developer with some design skills. Great if the person is versed in React and Bootstrap 4. The candidate would design our website based on designs from a graphics artist."}}
+
+	<div class="text-right" style="padding-top: 15px">
+		<span class="btn-group">
+			<div class="btn btn-theme" {{request_disabled}}
+					 id="request">Save</div>
+		</span>
+	</div>
+</template>
+
+
+<template name="challenge_review">
+	<h1 style="padding-top: 5px; margin-top: 0px">The challenge</h1>
+
+	<p>
+		This is the challenge to to share with your candidates.
+		To publish the challenge and share it with your candidates.
+		click on "Settings".
+	</p>
+
+	{{#if g_value collection_name="challenges" field="content" item_id=_id}}
+		<h1>
+			{{{g_value collection_name="challenges" field="title" item_id=_id}}}
+		</h1>
+
+		<p>
+			{{{g_value collection_name="challenges" field="content" item_id=_id}}}
+		</p>
+	{{else}}
+		<div class="alert alert-theme">
+			Your challenge is not yet ready. We expect your challenge
+			to be ready within two work days. If you have any questions.
+			Please contact our
+			<a href="mailto:info@mooqita.com?Subject=Mooqita%20designed%20challenge%20question">team</a>.
+		</div>
+	{{/if}}
+</template>
+
+
+<template name="self_design">
+	<h1 class="editable" style="padding-top: 5px; margin-top: 0px">
+		{{>basic_input collection_name="challenges" item_id=_id field="title"
+				placeholder="Click: to give your challenge a title."}}
+	</h1>
+
+	<div class="form-group">
+		{{>markdown_input method="set_field" collection_name="Challenges" item_id=_id
+											field="content" placeholder="In this challenge you will ..."}}
+	</div>
+
+	<div class="form-group">
+		{{>basic_input method="set_field" collection_name="Challenges"
+				type="number" field="num_reviews"	label="Number of reviews required"
+				item_id=_id explain="The number of reviews a learner has to provide."
+				placeholder="Number of reviews required."}}
+	</div>
+
+	<!-- TODO: make sure that the link gets displayed if present in db -->
+	<div class="form-group">
+		{{>basic_input method="set_field" collection_name="challenges"
+						field="link" label="Challenge or project link"
+						item_id=_id placeholder="Link that contextualizes the challenge."}}
+	</div>
+
+	<div class="form-group">
+		<div class="input-group" style="width: 100%;">
+			<label>Upload additional material</label>
+
+			{{>upload method="upload_file" collection_name="Challenges"
+				item_id=_id field="material"}}
+		</div>
+	</div>
+
+	{{#if material}}
+		<div class="input-group" style="width: 100%;">
+			<label>Download Additional material:</label>
+
+			{{>download collection_name="Challenges" item_id=_id field="material"}}
+		</div>
+	{{/if}}
+
+	{{#unless g_is_public "Challenges"}}
+		<div class="row">
+			<div class="form-group col-sm-offset-6 col-sm-6">
+				<span class="btn-group btn-group-justified">
+					<div class="btn btn-theme" id="save">Save</div>
+				</span>
+			</div>
+		</div>
+	{{/unless}}
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge solutions
+|
+-------------------------------------------------->
+<template name="challenge_solutions">
+	<h1 style="padding-top: 5px; margin-top: 0px">Candidates</h1>
+
+	<p>These are solutions your learner submitted so far.</p>
+
+	<div class="form-group text-right">
+		<div class="toggle-button">
+			<input id="public_only" type="checkbox">
+			<label for="public_only">Show only published solutions</label>
+			<div class="toggle-button-icon"></div>
+		</div>
+	</div>
+
+	{{#paging subscription="challenge_summaries" page=0 count=10 parameter=parameter}}
+		{{#each challenge_solutions}}
+			{{>challenge_solution}}
+		{{else}}
+			<hr>
+			<h1 class="text-center padding-next"
+					style="padding-bottom: 45px">
+				<em>No solutions yet.</em>
+			</h1>
+		{{/each}}
+		<hr>
+	{{/paging}}
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge solution
+|
+-------------------------------------------------->
+<template name="challenge_solution">
+	<div class="row">
+		<div class="col-sm-2 col-ms-3 text-center">
+			{{#each profile in solution_owners}}
+				{{>avatar collection_name="Profiles"
+					 observe = profile.avatar
+					 item_id = profile._id
+					 field = "avatar"}}
+
+				<a class="color-theme">{{g_name_from_profile profile true}}</a>
+			{{/each}}
+		</div>
+
+		<div class="col-sm-10 col-ms-9">
+			<h2>
+				{{{average_rating}}}
+
+				{{#if g_is_owner "Challenges" .}}
+					<em class="pull-right"> <span class="badge background-theme"></span>Author</em>
+				{{/if}}
+
+				{{#if published}}
+					<span class="badge background-contrast">public</span>
+				{{/if}}
+
+				<div class="btn-group pull-right">
+					<span class="btn btn-theme" id="user_info">
+						{{> popout_base title="Info"
+								content="This shows statistics about the user."
+								icon_class="glyphicon glyphicon-stats"}}
+					</span>
+
+					{{#unless recommendation}}
+						{{#if is_adding}}
+							<span class="btn btn-theme">
+								<div class="glyphicon glyphicon-refresh spin">
+								</div>
+							</span>
+						{{else}}
+							<span class="btn btn-theme" id="add_recommendation">
+								{{> popout_base title="Recommendation"
+										content="Add a letter of recommendation for your learner."
+										icon_class="glyphicon glyphicon-plus-sign"}}
+							</span>
+						{{/if}}
+					{{else}}
+						<span class="btn btn-theme" id="edit_recommendation">
+							{{> popout_base title="Recommendation"
+									content="Edit your letter of recommendation."
+									icon_class="glyphicon glyphicon-pencil"}}
+						</span>
+					{{/unless}}
+
+					<span class="btn btn-theme" id="reopen">
+						{{> popout_base title="Reopen"
+								content="Reopens the solution and the learner will be able to edit it again."
+								icon_class="glyphicon glyphicon-repeat"}}
+					</span>
+				</div>
+			</h2>
+
+			<p class="small">{{created}}</p>
+
+			{{>more content=content}}
+
+			{{#if material}}
+				<h2>Additional Material</h2>
+				<h2>
+					{{>download collection_name="Solutions"
+						item_id=_id field="material"}}
+				</h2>
+			{{/if}}
+
+			{{#if reviews}}
+				<h2>
+					<a id="show_reviews" data-toggle="collapse" data-target="#{{_id}}">
+						{{#unless reviews_visible}}
+							<span class="glyphicon glyphicon-expand"></span>
+						{{else}}
+							<span class="glyphicon glyphicon-collapse-down"></span>
+						{{/unless}}
+					</a>
+					Reviews
+				</h2>
+			{{/if}}
+		</div>
+	</div>
+
+	<div id="{{_id}}" class="row collapse">
+		<div class="col-sm-offset-1 col-sm-11 col-ms-offset-1 col-ms-11 row-line-left">
+			{{#each review in reviews}}
+				<div class="row">
+					<div class="col-sm-2 col-ms-3 text-center">
+						{{#each profile in (review_owners review)}}
+							{{>avatar collection_name="Profiles"
+								 observe = profile.avatar
+								 item_id = profile._id
+								 field = "avatar"}}
+
+							<a class="color-theme">{{g_name_from_profile profile true}}</a>
+						{{/each}}
+					</div>
+
+					<div class="col-sm-10 col-ms-9">
+						<div class="row">
+							<div class="col-xs-12">
+								<h2>
+									Rating <em>{{review.rating}}</em> out of <em>5</em>
+								</h2>
+							</div>
+
+							<div class="col-xs-12">
+								{{>more content=review.content}}
+
+								{{#each feedback review._id}}
+									<div class="row" style="margin-left: 25px">
+										<div class="col-xs-6">
+											<h2>
+												Rebuttal <!--a>{{g_profile_name owner_id}}</a-->
+											</h2>
+										</div>
+
+										<div class="col-xs-6">
+											<h2>
+												Rating <em>{{rating}}</em> out of <em>5</em>
+											</h2>
+										</div>
+
+										<div class="col-xs-12">
+											{{>more content=content}}
+										</div>
+									</div>
+							{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge reset solution
+|
+-------------------------------------------------->
+<template name="reopen_solution">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title">Reopen Solution</h1>
+				</div>
+
+				<div class="modal-body">
+					<p>
+						Are you sure you want to reopen the solution?
+					</p>
+				</div>
+
+				<div class="modal-footer">
+					<div class="btn-group btn-group-justified">
+						<a type="button" class="btn btn-theme" data-dismiss="modal">Not yet</a>
+						<a type="button" class="btn btn-theme"
+							 id="reopen" data-dismiss="modal">Reopen</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Learner info modal
+|
+-------------------------------------------------->
+<template name="show_learner_summary">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title"></h1>
+				</div>
+
+				<div class="modal-body">
+					{{>learner_summary}}
+				</div>
+
+				<div class="modal-footer right">
+					<div class="btn-group">
+						<a type="button" class="btn btn-theme" data-dismiss="modal">
+							<span class="glyphicon glyphicon-log-out"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Learner letter of recommendation
+|
+-------------------------------------------------->
+<template name="recommendation">
+	<div class="modal fade">
+		{{# mooqita_wide_spacing}}
+			<div class="modal-dialog" style="width: 100%; margin: 10px;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title">
+							Letter of Recommendation
+						</h1>
+					</div>
+
+					<div class="modal-body">
+						{{#with recommendation}}
+							{{#unless g_is_public "Recommendations"}}
+								<div class="alert alert-warning">
+									<h2>Todo List: Recommendation</h2>
+
+									A summary of things you need to do before
+									learners can see your letter of recommendation:
+
+									<ul>
+										{{#unless letter}}
+											<li>Write a letter (required)</li>
+										{{/unless}}
+
+										{{#unless skills}}
+											<li>Provide a list of skills you would like to add for the learner.</li>
+										{{/unless}}
+
+										{{#unless g_is_saved "Recommendations"}}
+											<li>Save it!</li>
+										{{/unless}}
+
+										<li>Publish your recommendation you find the button below.</li>
+									</ul>
+								</div>
+							{{/unless}}
+
+							<div class="padding-next">
+								{{>markdown_input method="set_field" collection_name="Recommendations"
+										item_id=_id field="content" placeholder="Letter of recommendation"}}
+							</div>
+						{{/with}}
+					</div>
+
+					<div class="modal-footer right">
+						<div class="btn-group">
+							<a type="button" class="btn btn-theme" data-dismiss="modal">
+								<span class="glyphicon glyphicon-log-out"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		{{/mooqita_wide_spacing}}
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge delete modal
+|
+-------------------------------------------------->
+<template name="delete_challenge">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title">Delete challenge</h1>
+				</div>
+
+				<div class="modal-body">
+					<p>
+						Are you sure you want to delete your challenge?<br>
+						This operation cannot be undone!
+					</p>
+				</div>
+
+				<div class="modal-footer">
+					<div class="btn-group btn-group-justified">
+						<a type="button" class="btn btn-theme" data-dismiss="modal">Not yet</a>
+						<a type="button" class="btn btn-danger" id="publish" data-dismiss="modal">Delete</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge Feedback
+|
+-------------------------------------------------->
+<template name="challenge_feedback">
+	<div class="row">
+		<div class="form-group col-md-7">
+			<label for="feedback"
+						 title="Your rating for this challenge overall">
+				Feedback
+			</label>
+
+			<textarea class="form-control" id="feedback"
+								rows="8" style="height: 183px">{{challenge_feedback}}</textarea>
+
+			<div class="btn-toolbar">
+				<span class="btn-group">
+					{{#if save_state}}
+						<div class="btn btn-red" id="save">Save</div>
+					{{else}}
+						<div class="btn btn-success" id="save">Save</div>
+					{{/if}}
+				</span>
+			</div>
+		</div>
+
+		<div class="col-md-5">
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="rating"
+								 title="Your rating for this challenge"
+									>Overall Rating</label>
+					<select class="form-control" id="rating" type="select">
+						<option value="null" disabled {{selected_default challenge_rating}}> -- not selected -- </option>
+						<option value="5" {{selected challenge_rating '5'}}>great</option>
+						<option value="4" {{selected challenge_rating '4'}}>good</option>
+						<option value="3" {{selected challenge_rating '3'}}>mediocre</option>
+						<option value="2" {{selected challenge_rating '2'}}>needs improvement</option>
+						<option value="1" {{selected challenge_rating '1'}}>need lots of improvement</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="ease"
+								 title="Your rating for this challenge overall"
+									>Ease of Challenge</label>
+					<select class="form-control" id="ease" type="select">
+						<option value="null" disabled {{selected_default challenge_ease}}> -- not selected -- </option>
+						<option value="5" {{selected challenge_ease '5'}}>too hard</option>
+						<option value="4" {{selected challenge_ease '4'}}>hard</option>
+						<option value="3" {{selected challenge_ease '3'}}>balanced</option>
+						<option value="2" {{selected challenge_ease '2'}}>easy</option>
+						<option value="1" {{selected challenge_ease '1'}}>too easy</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-sm-12">
+					<label for="timing"
+								 title="How much time did you need to solve the challenge."
+									>Time required</label>
+					<select class="form-control" id="timing" type="select">
+						<option value="null" {{selected_default challenge_timing}}> -- not selected -- </option>
+						<option value="5" {{selected challenge_timing '5'}}>much more time required</option>
+						<option value="4" {{selected challenge_timing '4'}}>more time required</option>
+						<option value="3" {{selected challenge_timing '3'}}>balanced</option>
+						<option value="2" {{selected challenge_timing '2'}}>less time required</option>
+						<option value="1" {{selected challenge_timing '1'}}>much less time required</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<!------------------------------------------------
+|
+|	Challenge
+|
+-------------------------------------------------->
+<template name="learner_summary">
+	<div class="mooqita-layout">
+		<div class="row">
+			<div class="col-sm-3 col-ms-4">
+				{{>avatar collection_name="Profiles"
+					 observe = (g_profile_avatar user_id)
+					 item_id = (g_profile_id user_id)
+					 field = "avatar"}}
+				<div class="text-center">
+					<h2>{{g_profile_name user_id}}</h2>
+					{{#each emails}}
+						<a href="{{address}}">{{address}}</a>
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="col-sm-9 col-ms-8">
+				<h2>Solutions</h2>
+				<p>Number solutions <em>{{solution_count}}</em></p>
+				<p>Average solution quality <em>{{average_solution_quality}}</em></p>
+				<p>Average solution length <em>{{solution_length}}</em></p>
+				{{#each solutions}}
+					<p>{{content}}</p>
+				{{/each}}
+
+				<h2>Reviews</h2>
+				<p>
+					<em>{{g_profile_name user_id}}</em> wrote <em>{{review_count}} reviews</em>
+					with an average length of <em>{{review_length}} words</em>
+					and gave on average a score of <em>{{average_review_quality}} out of 5</em>.
+				</p>
+				{{#each reviews}}
+					<p>{{content}}</p>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</template>
+

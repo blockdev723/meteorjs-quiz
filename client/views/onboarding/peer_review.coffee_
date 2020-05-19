@@ -1,0 +1,154 @@
+###############################################################################
+#
+# Onboarding / learner / peer review
+#
+###############################################################################
+
+###############################################################################
+# local variables and methods
+################################################################################
+
+################################################################################
+FlowRouter = require('meteor/ostrio:flow-router-extra').FlowRouter
+
+################################################################################
+Template.peer_review.onCreated -> 
+
+    console.log(CollectPeerReviews.find().count())
+    console.log(CollectPeerReviews)
+
+    if CollectPeerReviews.find().count() == 0
+        Meteor.call "set_peer_review_test_data"
+        
+        console.log("------ 1 -")
+
+        
+
+        # CollectPeerReviews.insert(
+        #     {
+        #         id: "sdfs1",
+        #         unit_id: "Unit1",
+        #         unit_name: "Unit 1 - Syntax",
+        #         questions: [
+        #             {
+        #                 question_id: 1,
+        #                 question: "Can someone help me with this import statement?",
+        #                 datetime: "April 17, 2020 7:00 pm",
+        #                 answers: [ 
+        #                     {
+        #                         user_id: 1,
+        #                         text: "Can someone Help with this import statement   I have this for my code right now but i think line 1 might be the issue.   My code goes like this:",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     },
+        #                     {
+        #                         user_id: 2,
+        #                         text: "Can someone Help with this import statement  I have this for my code right now but i think line 1 might be the issue.",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     }
+        #                 ]
+        #             },
+        #             {
+        #                 question_id: 2,
+        #                 question: "I don't understand why my print statement is not working. Help?",
+        #                 datetime: "April 17, 2020 7:00 pm",
+        #                 answers: [ 
+        #                     {
+        #                         user_id: 1,
+        #                         text: "Can someone Help with this import statement   I have this for my code right now but i think line 1 might be the issue.   My code goes like this:",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     },
+        #                     {
+        #                         user_id: 2,
+        #                         text: "Can someone Help with this import statement  I have this for my code right now but i think line 1 might be the issue.",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     }
+        #                 ]
+        #             }
+        #         ]
+        #     });
+    
+        # CollectPeerReviews.insert(
+        #     {
+        #         id: "dddddd2",
+        #         unit_id: "Unit2",
+        #         unit_name: "Unit 2 - For Loops",
+        #         questions: [
+        #             {
+        #                 question_id: 11,
+        #                 question: "Can someone help me with this import statement?",
+        #                 datetime: "April 17, 2020 7:00 pm",
+        #                 answers: [ 
+        #                     {
+        #                         user_id: 1,
+        #                         text: "Can someone Help with this import statement   I have this for my code right now but i think line 1 might be the issue.   My code goes like this:",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     },
+        #                     {
+        #                         user_id: 2,
+        #                         text: "Can someone Help with this import statement  I have this for my code right now but i think line 1 might be the issue.",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     }
+        #                 ]
+        #             },
+        #             {
+        #                 question_id: 12,
+        #                 question: "I don't understand why my print statement is not working. Help?",
+        #                 datetime: "April 17, 2020 7:00 pm",
+        #                 answers: [ 
+        #                     {
+        #                         user_id: 1,
+        #                         text: "Can someone Help with this import statement   I have this for my code right now but i think line 1 might be the issue.   My code goes like this:",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     },
+        #                     {
+        #                         user_id: 2,
+        #                         text: "Can someone Help with this import statement  I have this for my code right now but i think line 1 might be the issue.",
+        #                         img: "code1.png",
+        #                         datetime: "April 17, 2020 7:00 pm"
+        #                     }
+        #                 ]
+        #             }
+        #         ]
+        #     }
+        # );
+    # }
+
+# Template.peer_review.helpers({
+
+#     reviewdata() {
+
+#         collection = CollectPeerReviews;
+#         return collection.find().fetch();
+#     }
+# });
+
+# Template.peer_review_detail.helpers({
+	
+#     id: "sdfs1",
+#     unit_id: "Unit1",
+#     unit_name: "Unit 1 - Syntax",
+#     question_id: 22,
+#     question: "Can someone help me with this import statement?",
+#     answers: [ 
+#         {
+#             user_id: 1,
+#             text: "Can someone Help with this import statement   I have this for my code right now but i think line 1 might be the issue.   My code goes like this:",
+#             datetime: "April 17, 2020 7:00 pm",
+#             img: "code1.png"
+#         },
+#         {
+#             user_id: 1,
+#             text: "Can someone Help with this import statement  I have this for my code right now but i think line 1 might be the issue.",
+#             datetime: "April 17, 2020 7:00 pm",
+#             img: "code1.png"
+#         }
+#     ]
+    
+# });

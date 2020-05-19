@@ -1,0 +1,116 @@
+<!------------------------------------------------
+|
+| Layout templates
+|
+-------------------------------------------------->
+<template name="body_template" xmlns="http://www.w3.org/1999/html">
+	{{>sAlert}}
+	{{#if password_reset}}
+		{{>reset_password}}
+	{{else}}
+		{{#if layout_selected_login}}
+			{{#unless currentUser}}
+				{{>Template.dynamic template=layout_selected_login}}
+			{{else}}
+				{{#profile_loader}}
+					{{#Template.dynamic template=layout_selected_layout}}
+						{{>Template.dynamic template=layout_selected_content}}
+					{{/Template.dynamic}}
+				{{/profile_loader}}
+			{{/unless}}
+		{{else}}
+			{{#Template.dynamic template=layout_selected_layout}}
+				{{>Template.dynamic template=layout_selected_content}}
+			{{/Template.dynamic}}
+		{{/if}}
+	{{/if}}
+</template>
+
+
+<template name="profile_loader">
+	{{#if Template.subscriptionsReady}}
+		{{>Template.contentBlock}}
+	{{else}}
+		{{#if layout_selected_layout}}
+			{{#Template.dynamic template=layout_selected_layout}}
+				{{>wait}}
+			{{/Template.dynamic}}
+		{{else}}
+			{{>wait}}
+		{{/if}}
+	{{/if}}
+</template>
+
+
+<template name="mooqita_view">
+	{{>Template.dynamic template=layout_selected_view}}
+</template>
+
+
+<template name="mooqita_layout">
+	<div class="wrapper">
+		<div class="mooqita-layout">
+			{{#if layout_selected_menu}}
+				<header>
+					{{>Template.dynamic template=layout_selected_menu}}
+				</header>
+			{{/if}}
+
+			<main>
+				{{>Template.contentBlock}}
+			</main>
+
+			{{#if layout_selected_footer}}
+				<div class="footer-push"> </div>
+			{{/if}}
+		</div>
+
+		{{#if layout_selected_footer}}
+			<div class="mooqita-layout">
+				<footer>
+					{{>Template.dynamic template=layout_selected_footer}}
+				</footer>
+			</div>
+		{{/if}}
+	</div>
+</template>
+
+
+<template name="mooqita_wide_spacing">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				{{>Template.contentBlock}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="mooqita_with_sidebar">
+	<div class="container-fluid">
+		<div class="row" style="display: -webkit-box;
+														display: -webkit-flex;
+														display: -ms-flexbox;
+														display: flex;
+														flex-wrap: wrap;">
+			{{>Template.contentBlock}}
+		</div>
+	</div>
+</template>
+
+
+<template name="mooqita_main">
+	<div class="col-sm-8 col-ms-12 col-xs-12"
+			 style="display: flex; flex-direction: column;">
+		{{>Template.contentBlock}}
+	</div>
+</template>
+
+
+<template name="mooqita_sidebar">
+	<div class="col-sm-4 col-ms-12 col-xs-12"
+			 style="display: flex; flex-direction: column; margin-left: 0px">
+		{{>Template.contentBlock}}
+	</div>
+</template>

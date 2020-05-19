@@ -1,0 +1,112 @@
+<!------------------------------------------------
+|
+| Onboarding Intro
+|
+-------------------------------------------------->
+<template name="learning_progress">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: left; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>	
+
+		<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+			<div class="row text-center">
+				<h1 style="font-weight: bold;" >Computational Thinking Learning Module</h1>
+			</div>
+
+			<div class="row">
+				<h3 style="font-weight: bold;">Your Progress</h3>
+				<div class="progress">
+					<div class="progress-bar" style="width:70%">70%</div>
+				  </div>
+			</div>
+
+			<div class="row">
+				<div class="accordion" id="accordionExample">
+					<div class="card">
+					  <div class="card-header" id="headingOne">
+						<h2 class="mb-0">
+						  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Course Resources
+						  </button>
+						</h2>
+					  </div>
+				  
+					  <div id="collapseOne" class="collapse"   aria-expanded="false" aria-labelledby="headingOne" data-parent="#accordionExample">
+						<div class="card-body">
+							<ul class="list-group">
+								<li class="list-group-item">
+									<!-- <i class="fa fa-file-text-o mx-2" style="margin-right: 10px;"></i>									 -->
+									<a href="learning_lesson" style="color: black;">Course 1</a>
+								</li>
+								<li class="list-group-item">
+									<!-- <i class="fa fa-pencil mx-2" style="margin-right: 10px;"></i> -->
+									<a href="learning_lesson" style="color: black;">Course 2</a>
+								</li>
+								<li class="list-group-item">
+									<!-- <i class="fa fa-pencil-square-o mx-2" style="margin-right: 10px;"></i> -->
+									<a href="learning_lesson" style="color: black;">Course 3</a>
+								</li>
+							  </ul>
+						</div>
+					  </div>
+					</div>
+					<div class="card">
+					  <div class="card-header" id="headingTwo">
+						<h2 class="mb-0">
+						  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Module 1
+						  </button>
+						</h2>
+					  </div>
+					  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+						<div class="card-body">
+							<ul class="list-group">
+								<li class="list-group-item"><i class="fa fa-file-text-o mx-2" style="margin-right: 10px;"></i>									
+									<a href="comp_thinking_quiz" style="color: black;">Lesson</a>
+								</li>
+								<li class="list-group-item"><i class="fa fa-pencil mx-2" style="margin-right: 10px;"></i>
+									<a href="comp_thinking" style="color: black;">Code Exercises</a>
+								</li>
+								<li class="list-group-item"><i class="fa fa-pencil-square-o mx-2" style="margin-right: 10px;"></i>
+									<a href="learning_lesson" style="color: black;">Module Quiz</a>
+								</li>
+							  </ul>
+						</div>
+					  </div>
+					</div>
+					<div class="card">
+					  <div class="card-header" id="headingThree">
+						<h2 class="mb-0">
+						  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Module 2
+						  </button>
+						</h2>
+					  </div>
+					  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						<div class="card-body">
+							<ul class="list-group">
+								<li class="list-group-item"><i class="fa fa-file-text-o mx-2" style="margin-right: 10px;"></i>									
+									<a href="learning_lesson" style="color: black;">Lesson</a>
+								</li>
+								<li class="list-group-item"><i class="fa fa-pencil mx-2" style="margin-right: 10px;"></i>
+									<a href="learning_lesson" style="color: black;">Code Exercises</a>
+								</li>
+								<li class="list-group-item"><i class="fa fa-pencil-square-o mx-2" style="margin-right: 10px;"></i>
+									<a href="learning_lesson" style="color: black;">Module Quiz</a>
+								</li>
+							  </ul>
+						</div>
+					  </div>
+					</div>
+				  </div>
+			</div>
+
+            
+        </div>
+
+        
+	{{/mooqita_wide_spacing}}
+</template>
+
+

@@ -1,0 +1,133 @@
+<!------------------------------------------------
+|
+|	Computational Thinking Quiz
+|
+-------------------------------------------------->
+
+<template name="comp_thinking_quiz" template="quiz">
+	{{#mooqita_wide_spacing}}
+		<div class="item padding-top">
+			<div class="padding-next">
+				<h1>Computational Thinking Quiz</h1>
+				{{#unless comp_thinking_quiz_score}}
+					<form id="comp_thinking_quiz" method="post">
+						<div class="quiz_content">
+							{{#each question in quiz}}
+							    <div>
+									<h3>{{question.question}}</h3>
+									<div>
+										<input type="radio" id="question_{{@index}}" name="question_{{@index}}" value="{{question.answer_one}}" required>
+										<label for="question_{{@index}}">{{question.answer_one}}</label>
+									</div>
+									<div>
+										<input type="radio" id="question_{{@index}}" name="question_{{@index}}" value="{{question.answer_two}}" required>
+										<label for="question_{{@index}}">{{question.answer_two}}</label>
+									</div>
+									<div>
+										<input type="radio" id="question_{{@index}}" name="question_{{@index}}" value="{{question.answer_three}}" required>
+										<label for="question_{{@index}}">{{question.answer_three}}</label>
+									</div>
+									<div>
+										<input type="radio" id="question_{{@index}}" name="question_{{@index}}" value="{{question.answer_four}}" required>
+										<label for="question_{{@index}}">{{question.answer_four}}</label>
+									</div>
+							    </div> <br />
+							{{/each}}
+						</div>
+						<input type="submit" class="btn btn-theme" name="get_results" value="Get Results">
+					</form>
+				{{else}}
+					<h1>You have already submitted this quiz.</h1>
+				{{/unless}}
+			</div>
+		</div>
+		<!--
+		<p>If a problem looks very complicated, we can break it into simpler parts and then try to solve it. For example, if we cannot lift a heavy box of items, we try to remove the items and carry them one by one. By doing so, we decompose the problem. Decomposition is breaking a problem into smaller solvable pieces.</p>
+		<p class='in-pop-heading'>Activity</p>
+		<a class='in-pop-link' href='https://tetris.com/play-tetris/?utm_source=top_nav_link&utm_medium=webnav&utm_campaign=playNow_btm_tst&utm_content=text_play_now'>play tetris!!</a>
+		<p>Play this breakout game and think how you decompose the game while playing.</p>
+		<p>Example: How does the human body work? We can answer this question by focusing on one system at a time. Each system can further be decomposed into small explainable parts.  </p>
+		<p>Now it is your turn to decompose few problems. Write your answer in the text box below.</p>
+		<ol>
+			<li>How do you jumpstart a car?</li>
+			<li>How can you get to SFH from UNMC?</li>
+			<li>How do you decompose brushing your teeth in the morning?</li>
+		  </ol> 
+		<p>You can watch this video to recall the concepts you learned about decompositio    n:</p>
+		<iframe width='560' height='315' src='https://www.youtube.com/embed/yQVTijX437c' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		
+		
+		<p>Pattern recognition is when we find similarities among different parts of the problem. We leverage this approach in our daily life experiences from time to time. For instance, if we are doing something in which we repeat certain activities.</p>
+		<p>Let’s imagine we need to draw five bikes and color them differently. We know that all bikes have tires, seats, and other common parts. These similar parts in computational thinking are known as patterns. We can easily draw the bikes by following similar steps and then color differently.</p>
+		<p>This video explains pattern recognition in more detail:</p>
+		<iframe width='560' height='315' src='https://www.youtube.com/embed/SixLnIDV1yY' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		<iframe width='560' height='315' src='https://www.youtube.com/embed/cbZUnuyxcVs' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		<iframe width='560' height='315' src='https://www.youtube.com/watch?v=ixgGGzZXQ7E' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		
+		<p class='in-pop-heading'>Activity:</p>
+		<p>Now have to find some common pattern in the following examples:</p>
+		<ol>
+			<li>What is the similarity between a car, truck, and a bike?</li>
+			<li>Thinking back about the human body example earlier, what is the similarity between human body and machine?</li>
+		  </ol> 
+		
+		  Absctraction:
+		  <p>Abstraction means focusing on details that matter and ignoring the unnecessary details while solving a problem. It can also be put as identifying what is important in the problem we are solving. A good example of abstraction is using a pen. We write the pen, which is its main functionality. We do not know how the ink reaches the nib and write on the paper. So the important part is writing, and the detailed parts are how the pen works. </p>
+		  <p>Let’s consider a daily planner. By using a daily planner, we organize our time and we can have a glance at our week, day, and hours and see what is important in our schedule.</p>
+		  <p>This video explains Abstraction in more detail:</p>
+		  <iframe width='560' height='315' src='https://www.youtube.com/embed/jV-7Hy-PF2Q' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		  <p class='in-pop-heading'>Activity:</p>
+		  <p>Write the abstract and detailed explanation of the following:</p>
+		  <ol>
+			  <li>Cooking Pasta</li>
+			  <li>Building a house</li>
+			</ol> 
+			<p>Abstraction in Action:</p>
+			<iframe width='560' height='315' src='https://www.youtube.com/embed/9ePRa5nahYI' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+
+
+
+
+
+Algorithm
+			<p>An algorithm is a set of rules or steps we follow to solve a problem or complete a task. For example, brushing teeth is an algorithm. It is a step by step procedure that everyone follows when they brush their teeth. The steps are: </p>
+		  <ol>
+			<li>Holding the brush under running water.</li>
+			<li>Putting toothpaste on the toothbrush</li>
+			<li>Brush their teeth</li>
+			<li>Rinsing the brush</li>
+			<li>Rinsing their mouth</li>
+			</ol> 
+			<p>The above list of action can be knowns as tooth brushing algorithm.</p>
+			<p> Let’s look at the a different example. Recall the bed assignment example we discussed earlier. Assigning beds at the shelter is also an algorithm because the employees follow the same steps each time they assign a bed to an individual. Whenever a new guest registers themselves in the shelter the employee follows the following steps: </p>
+			<ol>
+				<li>Checking for a vacant bed</li>
+				<li>Assigning the vacant bed to the guest</li>
+				<li>Registering the bed number and the guest name in the system</li>
+				</ol> 
+			<p>Search algorithms - linear is fine with small data (classroom attendance) but harder the bigger the data gets. IRS example - if you have to check off as you receive each tax form, you need to find the number in the list quickly. </p>
+			<p>Resource allocation - S-F can allocate beds in order - come in, take the next open bed, then the next then the next. A restaurant doesn’t want to do that because the first four tables will be assigned to one server while the others stand around, and the one server will be trying to do many things simultaneously. Instead, the hostess will seat tables so one goes to the first server, one to the next server, etc. and then come back around (A picture would help explain this.) Multiple CPUs work the same way - the (?? OS??) will allocate tasks across CPUs. </p>
+			<ol>
+				<li>Cooking your favorite recipe.</li>
+				<li>Sending a text message.</li>
+				<li>Putting gas on a car.</li>
+				</ol> 
+			<p>What is an Algorithm? (TED-Ed)</p>
+			<iframe width='560' height='315' src='https://www.youtube.com/embed/6hfOvs8pY1k' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+			<iframe width='560' height='315' src='https://www.youtube.com/embed/ROUV90QmqUA' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		
+			<p>Algorithms in Action</p>
+			<iframe width='560' height='315' src='https://www.youtube.com/embed/o1mNf6_YqZM' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+		
+		
+		
+		
+			<iframe width='560' height='315' src='https://www.youtube.com/embed/mUXo-S7gzds' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>
+			<p>Things computers are good at vs. things computers are bad at.</p>
+			<p>One element of computational thinking is knowing what kinds of problems can be solved well by a computer and what problems are better if a person does them. Going back to the IRS example, a computer is really good at searching and recording data. So computers are a great tool for the IRS to use to keep track of who has turned in their tax forms each year - the computer can keep the list and quickly search for the social security numbers where no tax form has been received so those people can be notified. On the other hand, computers are not good at many creative tasks. For example, a computer is not good at deciding if a picture is pretty or if a person is kind. As programmers get smarter and as computers get more powerful, computers are starting to be able to do more and more complex tasks, but people are still required! </p>
+			<p>Additional Resources:</p>
+			<ol>
+				<li><a href="http://games.thinkingmyself.com/">Computational Thinking Games</a></li>
+			</ol> -->
+			{{/mooqita_wide_spacing}}
+</template>

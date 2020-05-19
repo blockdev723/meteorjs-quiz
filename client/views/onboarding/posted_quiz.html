@@ -1,0 +1,58 @@
+<!------------------------------------------------
+| @author: sandya-chaudhary
+| github.com/nas-pang
+| 
+| Peer Review
+|
+-------------------------------------------------->
+<template name="posted_quiz">
+	{{#mooqita_wide_spacing}}
+		<h1 style="text-align: left; padding-top: 30px">
+			<img style="width: 300px" src="/images/mooqita.jpg">
+		</h1>	
+
+		<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+
+			<div class="row">
+				<h1 style="font-weight: bold;">Peer Review</h1>				
+			</div>
+
+			<div class="row">
+				<div class="accordion" id="accordionDiv">
+					{{#each quizlist}}
+						<div class="card">
+							<div class="card-header mooqita-border">
+								<div class="mooqita-collapse-header" type="button" data-toggle="collapse" data-target="#{{_id}}" aria-expanded="true" aria-controls="{{_id}}">
+									{{quiztitle}}		  
+								</div>
+								
+							</div>
+						
+							<div id="{{_id}}" class="collapse"   aria-expanded="true" data-parent="#accordionDiv">
+								<div class="card-body">
+									<ul class="list-group">
+										<li class="list-group-item mooqita-peer-review-li">
+											<div class="row" style="margin-top: auto; margin-bottom: auto; width:100%">
+												<div class="col-12 col-md-8">
+													<!-- <a href="{{pathFor 'peer_review.detail' _id=question_id}}" style="color: black;" class="go-detail">{{question}}</a> -->
+													<a href="" style="color: black;" class="go-detail">{{quiztext}}</a>
+												</div>
+												<div class="col-6 col-md-4 text-right">
+													<!-- <p>{{createdAt}}</p> -->
+													<!-- <input type="button" class="btn btn-edit-quiz" id='{{_id}}' value="Edit Quiz"> -->
+													<a href="edit_quiz"  class="btn btn-gray btn-edit-quiz" id='{{_id}}'>Edit Quiz</a>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					{{/each}}
+				</div>
+			</div>
+           
+        </div>
+        
+	{{/mooqita_wide_spacing}}
+</template>
